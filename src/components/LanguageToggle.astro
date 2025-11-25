@@ -1,0 +1,28 @@
+---
+const currentPath = Astro.url.pathname;
+// Detect current language from URL prefix
+const currentLang: "en" | "fr" = currentPath.startsWith("/fr") ? "fr" : "en";
+// Compute alternate language + URL
+const basePath = currentPath.replace(/^\/(en|fr)/, "");
+const enUrl = `/en${basePath}`;
+const frUrl = `/fr${basePath}`;
+---
+<select id="lang-select" class="px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-700 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer" >
+  <option value={enUrl} selected={currentLang === "en"}> 🇺🇸 EN </option>
+  <option value={frUrl} selected={currentLang === "fr"}> 🇫🇷 FR </option>
+</select>
+
+<script lang="ts">
+  const selectEl = document.getElementById("lang-select") as HTMLSelectElement  null;
+
+  if (selectEl) {
+    selectEl.addEventListener("change", (e: Event) => {
+      const target = e.target as HTMLSelectElement;
+      const url = target.value;
+
+      if (url && typeof url === "string") {
+        window.location.href = url;
+      }
+    });
+  }
+</script>

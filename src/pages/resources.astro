@@ -1,47 +1,12 @@
 ---
 import "../styles/global.css";
+import Layout from "../layouts/Layout.astro"
 ---
+
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PADK – Resources</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .hero-gradient {
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.9));
-    }
-    .cookie-banner {
-      backdrop-filter: blur(4px);
-    }
-  </style>
-</head>
 <body class="antialiased text-gray-800 bg-white">
-
-  <!-- NAV -->
-  <header class="border-b">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-semibold">PADK</a>
-
-      <nav class="hidden md:flex gap-6 text-sm items-center">
-        <a class="hover:underline" href="/">HOME</a>
-        <a class="hover:underline" href="/about-us">ABOUT</a>
-        <a class="hover:underline font-semibold" href="/resources">RESOURCES</a>
-        <a class="hover:underline" href="/join-our-team">JOIN OUR TEAM</a>
-        <a class="hover:underline" href="/contact-us">CONTACT</a>
-        <a class="hover:underline" href="/projects">PROJECTS</a>
-      </nav>
-
-      <div class="md:hidden">
-        <button aria-label="open menu" class="p-2 rounded bg-gray-100">
-          ☰
-        </button>
-      </div>
-    </div>
-  </header>
-
+<Layout title="Resources"></Layout>
   <!-- HERO / TITLE -->
   <section class="hero-gradient">
     <div class="max-w-6xl mx-auto px-6 py-12 text-center">
