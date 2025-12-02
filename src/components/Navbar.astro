@@ -1,31 +1,52 @@
 ---
 import "../styles/global.css";
 import LanguageToggle from "./LanguageToggle.astro";
+const currentLang = Astro.url.pathname.startsWith("/fr") ? "fr" : "en";
+const navLinks = {
+  en: [
+    { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT" },
+    { href: "/resources", label: "RESOURCES" },
+    { href: "/projects", label: "PROJECTS" },
+  ],
+  fr: [
+    { href: "/fr", label: "HOME" },
+    { href: "about", label: "A PROPOS"},
+    { href: "resources", label: "RESSOURCES"},
+    { href: "projects", label: "PROJETS"},
+  ],  
+}
 ---
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About PADK</title>
+<script>
+// TO DO: MAKE CURRENT LINK ACTIVE  
+// TO DO: FIX TYPE ERRORS 
+const currentPath = window.location.pathname
+const currentLang = currentPath.startsWith("/fr") ? "fr" : "en";
+console.log("Current Page:", currentPath);
+document.getElementById("home").href = currentLang === "en" ? "/" : "/fr";
+document.getElementById("about").href = currentLang === "en" ? "/about" : "/fr/about";
+document.getElementById("resources").href = currentLang === "en" ? "/resources" : "/fr/resources";
+document.getElementById("projects").href = currentLang === "en" ? "/projects" : "/fr/projects"; 
+</script>
 
-  <style>
-    .hero-gradient {
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.9));
-    }
-    .cookie-banner {
-      backdrop-filter: blur(4px);
-    }
-  </style>
-</head>
 <body class="antialiased text-gray-800 bg-white">
-
-  <!-- NAV -->
   <header class="border-b">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-semibold">PADK</a>
-      <nav class="hidden md:flex gap-6 text-sm items-center"> 
-        <a class="hover:underline font-semibold" href="/about-us">ABOUT</a>
-        <a class="hover:underline" href="/resources">RESOURCES</a>
-        <a class="hover:underline" href="/projects">PROJECTS</a>
+        <a id="home" class="text-xl font-semibold">TARTS</a>
+      <nav class="hidden md:flex gap-6 text-sm items-center">   
+        {currentLang === "en" ? (
+          <>
+            <a id="about" class={ "hover:underline font-semibold"}  href={navLinks.en[1].href}>{navLinks.en[1].label}</a>
+            <a id="resources" class="hover:underline" href={navLinks.en[2].href}>{navLinks.en[2].label}</a>
+            <a id="projects" class="hover:underline" href={navLinks.en[3].href}>{navLinks.en[3].label}</a>
+          </>
+        ) : (
+          <>
+            <a id="about" class="hover:underline font-semibold" href={navLinks.fr[1].href}>{navLinks.fr[1].label}</a>
+            <a id="resources" class="hover:underline" href={navLinks.fr[2].href}>{navLinks.fr[2].label}</a>
+            <a id="projects" class="hover:underline" href={navLinks.fr[3].href}>{navLinks.fr[3].label}</a>
+          </>
+        )}
       <LanguageToggle/>
       </nav>
 
@@ -37,3 +58,4 @@ import LanguageToggle from "./LanguageToggle.astro";
       </div>
     </div>
   </header>
+  </body>

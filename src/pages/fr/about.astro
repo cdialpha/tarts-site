@@ -1,0 +1,186 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro" 
+---
+<!doctype html>
+<html lang="en">
+
+<Layout title="Home"><h1>HOME, some text<h1/></Layout>
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-12">
+    <section id="our-story" class="prose prose-lg max-w-none">
+      <h2 class="text-2xl font-bold">OUR STORY</h2>
+      <p>
+        We are a non-profit organization based in the Kadey Division (East Region) of Cameroon since 2017. We operate in more than 20 communities around the division, including Batouri, the divisional capital.
+      </p>
+      <p>
+        PADK has one main vision. Every community has numerous assets and skills, which are sufficient to start and sustain a long term development of the community...
+      </p>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <img src="https://via.placeholder.com/320x200.png?text=alex+and+students" alt="" class="w-full h-44 object-cover rounded" />
+        <img src="https://via.placeholder.com/320x200.png?text=training" alt="" class="w-full h-44 object-cover rounded" />
+        <img src="https://via.placeholder.com/320x200.png?text=project" alt="" class="w-full h-44 object-cover rounded" />
+      </div>
+    </section>
+    <section id="objectives">
+      <h3 class="text-xl font-semibold mb-6">OUR MAIN OBJECTIVES</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 border rounded-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">1</div>
+            <h4 class="ml-4 font-semibold">Reduce poverty</h4>
+          </div>
+          <p class="text-sm text-gray-700">Reduce the poverty in the communities of the Kadey Division.</p>
+        </div>
+
+        <div class="p-6 border rounded-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">2</div>
+            <h4 class="ml-4 font-semibold">Reduce dependence</h4>
+          </div>
+          <p class="text-sm text-gray-700">Reduce the dependence of the population on external help.</p>
+        </div>
+
+        <div class="p-6 border rounded-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">3</div>
+            <h4 class="ml-4 font-semibold">Reinforce capacities</h4>
+          </div>
+          <p class="text-sm text-gray-700">Reinforce the capacities of the people to promote a long term development based on the local community assets.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SUMMARY -->
+    <section id="projects" class="space-y-6">
+      <h3 class="text-xl font-semibold">OUR PROJECTS</h3>
+      <p class="text-gray-700">After two years in the Kadey villages, we were able to study around 20 communities... the level of poverty is becoming dangerously high.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="border rounded overflow-hidden">
+          <img src="https://via.placeholder.com/640x360.png?text=IMG_20190923_114606" alt="" class="w-full h-40 object-cover" />
+          <div class="p-4">
+            <h5 class="font-semibold">All OUR PROJECTS</h5>
+            <p class="text-sm text-gray-600 mt-2">Brief one-line about this project.</p>
+          </div>
+        </div>
+
+        <!-- repeat placeholders -->
+        <div class="border rounded overflow-hidden">
+          <img src="https://via.placeholder.com/640x360.png?text=project2" alt="" class="w-full h-40 object-cover" />
+          <div class="p-4">
+            <h5 class="font-semibold">Project</h5>
+            <p class="text-sm text-gray-600 mt-2">Short description</p>
+          </div>
+        </div>
+
+        <div class="border rounded overflow-hidden">
+          <img src="https://via.placeholder.com/640x360.png?text=project3" alt="" class="w-full h-40 object-cover" />
+          <div class="p-4">
+            <h5 class="font-semibold">Project</h5>
+            <p class="text-sm text-gray-600 mt-2">Short description</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION / STATS -->
+    <section id="mission" class="grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h3 class="text-xl font-semibold">OUR MISSION, VISION & APPROACH</h3>
+        <p class="text-gray-700 mt-3">To work with the residents of the Kadey to promote improved self sufficiency and health and well-being in the region...</p>
+        <p class="mt-4 text-gray-700">Asset Based Community Development (ABCD) is a powerful and proven approach that helps nonprofit and governmental leaders and community residents unleash the latent potential...</p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <h4 class="font-semibold mb-4">Impact highlights</h4>
+
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">✓</div>
+            <div>
+              <div class="font-semibold">Wells Built</div>
+              <div class="text-sm text-gray-600">Giving fresh water access to over 1,000 people</div>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">✓</div>
+            <div>
+              <div class="font-semibold">Latrines Built</div>
+              <div class="text-sm text-gray-600">Improving sanitation</div>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">✓</div>
+            <div>
+              <div class="font-semibold">Trainings</div>
+              <div class="text-sm text-gray-600">ABCD & Entrepreneurship trainings conducted</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HELP / CTA -->
+    <section id="help" class="bg-white border rounded-lg p-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl font-semibold">WHY AND HOW can you help?</h3>
+          <p class="text-gray-700 mt-2">Here in the Kadey, a little bit of investment goes a long way. Whether you would like to support PADK with time, treasure or talent, your contribution will make a significant impact.</p>
+
+          <ul class="mt-4 list-disc ml-5 text-gray-700 space-y-1">
+            <li>Provide internships for young students</li>
+            <li>Volunteer with agricultural projects</li>
+            <li>Work with community development projects</li>
+            <li>Connect us to other assets and interested people in your network</li>
+          </ul>
+        </div>
+
+        <div class="flex gap-3">
+          <a href="https://secure.directbiller.com" target="_blank" class="px-5 py-3 bg-yellow-600 text-white rounded shadow">Make a donation</a>
+          <a href="/volunteer" class="px-5 py-3 border border-gray-300 rounded hover:bg-gray-100">Volunteer with us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t">
+    <div class="max-w-6xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6">
+      <div>
+        <div class="text-lg font-semibold">PADK</div>
+        <div class="text-sm text-gray-600 mt-2">PADK is a fiscally sponsored project of the Center for Social Change, a 501(c)3 nonprofit organization</div>
+      </div>
+
+      <div class="md:col-span-1">
+        <div class="text-sm font-semibold mb-2">Contact</div>
+        <div class="text-sm text-gray-600">Primary office: Ngotto — Batouri and Ngotto, East Cameroon; Douala, Littoral Region</div>
+      </div>
+
+      <div class="flex flex-col items-start gap-3">
+        <div class="text-sm font-semibold">Follow</div>
+        <div class="flex gap-3">
+          <a href="https://www.facebook.com" aria-label="Facebook" class="text-sm hover:underline">Facebook</a>
+          <a href="https://www.instagram.com" aria-label="Instagram" class="text-sm hover:underline">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div class="fixed bottom-6 right-6 cookie-banner bg-white border rounded-lg p-4 shadow-lg max-w-sm">
+    <div class="flex items-start gap-3">
+      <div class="flex-1 text-sm">
+        This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.
+      </div>
+      <div class="flex-shrink-0 flex items-center gap-2">
+        <button class="px-3 py-1 text-sm border rounded">Cookie settings</button>
+        <button class="px-3 py-1 text-sm bg-green-600 text-white rounded">ACCEPT</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
