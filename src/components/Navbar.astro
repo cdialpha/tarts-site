@@ -19,14 +19,18 @@ const navLinks = {
 ---
 <script>
 // TO DO: MAKE CURRENT LINK ACTIVE  
-// TO DO: FIX TYPE ERRORS 
 const currentPath = window.location.pathname
 const currentLang = currentPath.startsWith("/fr") ? "fr" : "en";
 console.log("Current Page:", currentPath);
-document.getElementById("home").href = currentLang === "en" ? "/" : "/fr";
-document.getElementById("about").href = currentLang === "en" ? "/about" : "/fr/about";
-document.getElementById("resources").href = currentLang === "en" ? "/resources" : "/fr/resources";
-document.getElementById("projects").href = currentLang === "en" ? "/projects" : "/fr/projects"; 
+const home = document.getElementById("home") as HTMLAnchorElement | null;
+if (home) home.href = currentLang === "en" ? "/" : "/fr";
+const about = document.getElementById("about") as HTMLAnchorElement | null;
+if (about) about.href = currentLang === "en" ? "/about" : "/fr/about";
+const resources = document.getElementById("resources") as HTMLAnchorElement | null;
+if (resources) resources.href = currentLang === "en" ? "/resources" : "/fr/resources";
+const projects = document.getElementById("projects") as HTMLAnchorElement | null;
+if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects";
+
 </script>
 
 <body class="antialiased text-gray-800 bg-white">
