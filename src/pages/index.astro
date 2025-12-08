@@ -1,148 +1,166 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro" 
+import { Image } from "astro:assets";
+import pressures from "../assets/pressures.png";
+import community from "../assets/community.jpeg";
+import home1 from "../assets/home1.jpeg";
+import home2 from "../assets/home2.jpeg";
+import lab from "../assets/lab.jpeg";
+import lib from "../assets/library.jpeg";
+import farm2 from "../assets/farm_2.jpeg";
+import plant from "../assets/plant.png";
+import protect from "../assets/protect.png";
+import teach from "../assets/teach.png";
+import book from "../assets/book.png";
+import dragonfruit from "../assets/dragonfruit.jpeg";
+import womensGroup from "../assets/womens-group.jpeg";
+import teamReading from "../assets/team-reading.jpeg";
 ---
 <!doctype html>
 <html lang="en">
 
 <Layout title="Home">
-  <main class="max-w-6xl mx-auto px-6 py-12 space-y-12">
-    <section id="our-story" class="prose prose-lg max-w-none">
-      <h2 class="text-2xl font-bold">OUR STORY</h2>
-      <p>
-        We are a non-profit organization based in the Kadey Division (East Region) of Cameroon since 2017. We operate in more than 20 communities around the division, including Batouri, the divisional capital.
+  <main id="full-body" class="space-y-12">
+    <section id="section-1" class="bg-g1 px-6 py-12 mb-0 text-b1">
+      <div class="max-w-4xl mx-auto"> 
+            <h2 class="text-2xl font-bold">The need for action…
+      </h2>
+      <div class="flex flex-row items-center gap-8 mt-6">
+            <p class=""> The East Region in Cameroon has incredible cultural, ecological, and geogrpahic diversity. However, the primary economy is centered around logging, mining, and resource extraction. Most of the local subsistence farmers grow cocoa, tobacco, manioc, plantain, and coffee. Despite the large sums of aid money being spent every year to help local residents, the economic disparities persist and residents have seen very little of this extracted wealth.
+            </p>
+            <Image
+              src={pressures}
+              alt="clipapart"
+              class="rounded-lg h-40 w-40"
+              loading="eager"/>
+          </div>
+          </div>
+          <div class="max-w-4xl mx-auto"> 
+           
+      <p class="py-4"> Powerful Action for the Development of the Kadey (PADK) is a non-profit organization located in the Kadey department, in the East region of Cameroon. We are focused on regenerative farming, permaculture, economic development, and finding sustainable solutions to our biggest problems.</p>
+         <Image
+              src={community}
+              alt="clipapart"
+              class="rounded-lg"
+              loading="eager"/>
+          </div>
+
+  <div class="max-w-4xl mx-auto px-6 py-16 space-y-16">
+
+  <div class="flex flex-col md:flex-row items-center gap-10">
+    <div class="flex flex-col gap-4 md:w-1/2">
+      <h2 class="font-extrabold text-2xl">Our Mission</h2>
+       <p class="text-lg leading-relaxed">
+        To work with the local residents, and more broadly, the farmers of Cameroon to foster a holistic agricultural approach. We provide training, research facilities, and experimental fields to promote regenerative agriculture techniques, adapt them to the local context, and serve as a model of integrated farming.
       </p>
-      <p>
-        PADK has one main vision. Every community has numerous assets and skills, which are sufficient to start and sustain a long term development of the community...
+    </div>  
+    <div class="md:w-1/2 flex justify-center rounded-full overflow-hidden">
+      <Image
+          src={home1}
+          alt="Descriptive alt text"
+          class="w-full h-full object-cover"
+          sizes="(min-width: 768px) 256px, 200px"/>
+    </div>
+  </div>
+  <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+    <div class="flex flex-col gap-4 md:w-1/2">
+      <h2 class="font-extrabold text-2xl">Our Vision</h2>
+       <p class="text-lg leading-relaxed">
+        We are optimistic of a future where agriculture and sustainability can coexist by promoting influential community leaders, fostering inclusive dialogue, and amplifying the voices of agricultural experts and leaders throughout Cameroon. We host students from a broad range of institutions, all over Cameroon, in order to stimulate the exchange of knowledge, curiosity, and innovation.
       </p>
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <img src="https://via.placeholder.com/320x200.png?text=alex+and+students" alt="" class="w-full h-44 object-cover rounded" />
-        <img src="https://via.placeholder.com/320x200.png?text=training" alt="" class="w-full h-44 object-cover rounded" />
-        <img src="https://via.placeholder.com/320x200.png?text=project" alt="" class="w-full h-44 object-cover rounded" />
+    </div>  
+    <div class="md:w-1/2 flex justify-center rounded-full overflow-hidden">
+      <Image
+          src={home2}
+          alt="Descriptive alt text"
+          class="w-full h-full object-cover"
+          sizes="(min-width: 768px) 256px, 200px"/>
+    </div>
+  </div>
+</div>
+    </section>
+    
+    <section id="section-2" class="bg-g2 px-6 py-12 text-b1">
+      <div class="flex-col max-w-4xl mx-auto space-y-6"> 
+      <h3 class="text-xl font-semibold mb-6">Tropical Agriculture Research and Training Station (TARTS)</h3>
+      <p> The backbone of PADK is the Tropical Agriculture Research and Training Station (TARTS). TARTS is the primary site where we conduct our field trials and lab research.</p>
+      <p>Our facilities & resources include:</p>
+      <div class="grid md:grid-cols-3 md:grid-flow-row gap-6">
+         <div class="flex-col text-center"> <h1 class="font-extrabold text-lg">Fileds</h1> <Image
+              src={farm2}
+              alt="clipapart"
+              class="rounded-lg object-cover"
+              loading="eager"/>
+              </div>     
+              <div class="flex-col text-center"> <h1 class="font-extrabold text-lg">Laboratory</h1> 
+              <Image
+              src={lab}
+              alt="clipapart"
+              class="rounded-lg object-cover"
+              loading="eager"/> </div>
+              <div class="flex-col text-center"> <h1 class="font-extrabold text-lg">Academic Center</h1> 
+                        <Image
+              src={lib}
+              alt="clipapart"
+              class="rounded-lg object-cover"
+              loading="eager"/> </div>
+          <div class="text-center"><p>Numerous Test Plots; 1 ha. each of Cocoa & Coffee; Pasture Improvement Plots; Vanilla Production Facilities; </p> </div>
+                   <div class="text-center"><p> Lab Grade Microscopy; Media Lab & Culture; Well stocked chemical inventory </p> </div>
+                            <div class="text-center"><p> Growing Technical Library;Office & Conference Space; Dormitories & Ammenities </p> </div>
+        </div>
+      </div>
       </div>
     </section>
-    <section id="objectives">
-      <h3 class="text-xl font-semibold mb-6">OUR MAIN OBJECTIVES</h3>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 border rounded-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">1</div>
-            <h4 class="ml-4 font-semibold">Reduce poverty</h4>
-          </div>
-          <p class="text-sm text-gray-700">Reduce the poverty in the communities of the Kadey Division.</p>
+<!--  GOALS -->
+    <section id="section-3" class="bg-g3 px-6 py-12 text-g1">
+      <div class="flex-col max-w-4xl mx-auto space-y-6"> 
+      <h2 class="text-3xl font-semibold mb-6"> OUR GOALS </h3>
+      <div class="grid grid-cols-4 grid-flow-row gap-6 text-sm md:text-lg">
+          <Image
+              src={plant}
+              alt="clipapart"
+              class="object-cover border-b-4 border-g1 py-4"
+              loading="eager"/>
+          <Image
+              src={protect}
+              alt="clipapart"
+              class="object-cover  border-b-4 border-g1 py-4"
+              loading="eager"/>
+          <Image
+          src={teach}
+          alt="clipapart"
+          class="object-cover border-b-4 border-g1 py-4"
+          loading="eager"/>
+       <Image
+          src={book}
+          alt="clipapart"
+          class="object-cover border-b-4 border-g1 py-4"
+          loading="eager"/> 
+          <div><p>Promoting regenerative farming practices to increase the yields of current cash crops</p></div>
+          <div><p>Growing foods with the strongest biodiversity and disease prevention properties to improve community health.</p></div>
+          <div><p>Use our facilities for demonstrations and  workshops to diseminate our findings.</p></div>
+          <div><p>Conducting research to build student capacity & contextualize regenerative principals.</p></div>
         </div>
-
-        <div class="p-6 border rounded-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">2</div>
-            <h4 class="ml-4 font-semibold">Reduce dependence</h4>
-          </div>
-          <p class="text-sm text-gray-700">Reduce the dependence of the population on external help.</p>
-        </div>
-
-        <div class="p-6 border rounded-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">3</div>
-            <h4 class="ml-4 font-semibold">Reinforce capacities</h4>
-          </div>
-          <p class="text-sm text-gray-700">Reinforce the capacities of the people to promote a long term development based on the local community assets.</p>
-        </div>
+      </div>
       </div>
     </section>
-
-    <!-- PROJECTS SUMMARY -->
-    <section id="projects" class="space-y-6">
-      <h3 class="text-xl font-semibold">OUR PROJECTS</h3>
-      <p class="text-gray-700">After two years in the Kadey villages, we were able to study around 20 communities... the level of poverty is becoming dangerously high.</p>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="border rounded overflow-hidden">
-          <img src="https://via.placeholder.com/640x360.png?text=IMG_20190923_114606" alt="" class="w-full h-40 object-cover" />
-          <div class="p-4">
-            <h5 class="font-semibold">All OUR PROJECTS</h5>
-            <p class="text-sm text-gray-600 mt-2">Brief one-line about this project.</p>
-          </div>
+    <!-- PROJECTS -->
+    <section id="section-3" class="bg-g2 px-6 py-12 text-g3">
+      <div class="max-w-4xl mx-auto"> 
+      <h3 class="text-3xl font-semibold py-4">OUR PROJECTS</h3>
+      <p class="pb-4">Though our focus remains on regenerative agriculture, we complete projects that benefit all aspects of the community. Like any healthy ecosystem, all domains are interdependent and interwoven with eachother. In addition to our research and agricultural projects, we have completed dozens of projects with women groups, primary schools, small businesses, water and sanitation projects, and many other sectors.</p>
+      <div class="flex-col mt-2 mb-10 relative">
+          <Image src={dragonfruit} alt="clipapart" class="object-cover brightness-40 contrast-125" loading="eager"/>
+          <h1 class="absolute -translate-y-12 text-6xl font-extrabold z-10">Agriculture</h1>
+        <Image src={womensGroup} alt="clipapart" class="object-cover brightness-40 contrast-125" loading="eager"/>
+          <h1 class="absolute right-0 -translate-y-12 text-6xl font-extrabold z-10">Community</h1>
+      <Image src={teamReading} alt="clipapart" class="object-cover brightness-40 contrast-125" loading="eager"/>
+          <h1 class="absolute -translate-y-12 text-6xl font-extrabold z-10">Research</h1>
         </div>
-
-        <!-- repeat placeholders -->
-        <div class="border rounded overflow-hidden">
-          <img src="https://via.placeholder.com/640x360.png?text=project2" alt="" class="w-full h-40 object-cover" />
-          <div class="p-4">
-            <h5 class="font-semibold">Project</h5>
-            <p class="text-sm text-gray-600 mt-2">Short description</p>
-          </div>
-        </div>
-
-        <div class="border rounded overflow-hidden">
-          <img src="https://via.placeholder.com/640x360.png?text=project3" alt="" class="w-full h-40 object-cover" />
-          <div class="p-4">
-            <h5 class="font-semibold">Project</h5>
-            <p class="text-sm text-gray-600 mt-2">Short description</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MISSION / STATS -->
-    <section id="mission" class="grid md:grid-cols-2 gap-8 items-start">
-      <div>
-        <h3 class="text-xl font-semibold">OUR MISSION, VISION & APPROACH</h3>
-        <p class="text-gray-700 mt-3">To work with the residents of the Kadey to promote improved self sufficiency and health and well-being in the region...</p>
-        <p class="mt-4 text-gray-700">Asset Based Community Development (ABCD) is a powerful and proven approach that helps nonprofit and governmental leaders and community residents unleash the latent potential...</p>
-      </div>
-
-      <div class="bg-gray-50 p-6 rounded-lg">
-        <h4 class="font-semibold mb-4">Impact highlights</h4>
-
-        <ul class="space-y-3">
-          <li class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">✓</div>
-            <div>
-              <div class="font-semibold">Wells Built</div>
-              <div class="text-sm text-gray-600">Giving fresh water access to over 1,000 people</div>
-            </div>
-          </li>
-
-          <li class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">✓</div>
-            <div>
-              <div class="font-semibold">Latrines Built</div>
-              <div class="text-sm text-gray-600">Improving sanitation</div>
-            </div>
-          </li>
-
-          <li class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">✓</div>
-            <div>
-              <div class="font-semibold">Trainings</div>
-              <div class="text-sm text-gray-600">ABCD & Entrepreneurship trainings conducted</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- HELP / CTA -->
-    <section id="help" class="bg-white border rounded-lg p-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="text-xl font-semibold">WHY AND HOW can you help?</h3>
-          <p class="text-gray-700 mt-2">Here in the Kadey, a little bit of investment goes a long way. Whether you would like to support PADK with time, treasure or talent, your contribution will make a significant impact.</p>
-
-          <ul class="mt-4 list-disc ml-5 text-gray-700 space-y-1">
-            <li>Provide internships for young students</li>
-            <li>Volunteer with agricultural projects</li>
-            <li>Work with community development projects</li>
-            <li>Connect us to other assets and interested people in your network</li>
-          </ul>
-        </div>
-
-        <div class="flex gap-3">
-          <a href="https://secure.directbiller.com" target="_blank" class="px-5 py-3 bg-yellow-600 text-white rounded shadow">Make a donation</a>
-          <a href="/volunteer" class="px-5 py-3 border border-gray-300 rounded hover:bg-gray-100">Volunteer with us</a>
-        </div>
-      </div>
-    </section>
+  </div>
+  </div>
+</section>
 
   </main>
 </Layout>
