@@ -1,9 +1,9 @@
 ---
 import Navbar from "../components/Navbar.astro"	
 import Hero from "../components/Hero.astro"
-
+import ConsentBanner from "../components/ConsentBanner.astro";
+import Footer from "../components/Footer.astro";
 const {title} =  Astro.props;
-
 ---
 <!doctype html>
 <html lang="en">
@@ -15,10 +15,9 @@ const {title} =  Astro.props;
 		<title>TARTS | {title} </title>
 	</head>
 	<Navbar class=""/>
-	<Hero title={title}/>
-	<body class="bg-white mx-2">
-		<slot/> 
-	</body>
+	<slot/> 
+	<Footer/>
+	<ConsentBanner/> 
 </html>
 
 

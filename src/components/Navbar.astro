@@ -11,17 +11,27 @@ const navLinks = {
   ],
   fr: [
     { href: "/fr", label: "TARTS" },
-    { href: "about", label: "A PROPOS"},
-    { href: "resources", label: "RESSOURCES"},
-    { href: "projects", label: "PROJETS"},
+    { href: "/fr/about", label: "A PROPOS"},
+    { href: "/fr/resources", label: "RESSOURCES"},
+    { href: "/fr/projects", label: "PROJETS"},
   ],  
 }
+// Stlyling for active vs inactive links
+const pathname = Astro.url.pathname;
+const normalize = (path: string) => path.replace(/\/$/, "");
+const isActive = (href: string) => {
+  const current = normalize(pathname);
+  const target = normalize(href);
+  return (
+    current === target ||
+    current.startsWith(`${target}/`)
+  );} 
+const ACTIVE = "font-extrabold text-white underline underline-offset-4";
+const INACTIVE = "text-white/70 hover:text-white hover:underline";
 ---
 <script>
-// TO DO: MAKE CURRENT LINK ACTIVE  
 const currentPath = window.location.pathname
 const currentLang = currentPath.startsWith("/fr") ? "fr" : "en";
-console.log("Current Page:", currentPath);
 const home = document.getElementById("home") as HTMLAnchorElement | null;
 if (home) home.href = currentLang === "en" ? "/" : "/fr";
 const about = document.getElementById("about") as HTMLAnchorElement | null;
@@ -30,25 +40,24 @@ const resources = document.getElementById("resources") as HTMLAnchorElement | nu
 if (resources) resources.href = currentLang === "en" ? "/resources" : "/fr/resources";
 const projects = document.getElementById("projects") as HTMLAnchorElement | null;
 if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects";
-
 </script>
 
-<body class="antialiased text-gray-800 bg-white">
+<body class="antialiased text-gray-800 bg-g3 text-white font-bold">
   <header class="border-b">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a id="home" class="text-xl font-semibold">TARTS</a>
       <nav class="hidden md:flex gap-6 text-sm items-center">   
         {currentLang === "en" ? (
           <>
-            <a id="about" class={ "hover:underline font-semibold"}  href={navLinks.en[1].href}>{navLinks.en[1].label}</a>
-            <a id="resources" class="hover:underline" href={navLinks.en[2].href}>{navLinks.en[2].label}</a>
-            <a id="projects" class="hover:underline" href={navLinks.en[3].href}>{navLinks.en[3].label}</a>
+            <a id="about" class={isActive(navLinks.en[1].href) ? ACTIVE : INACTIVE} href={navLinks.en[1].href}>{navLinks.en[1].label}</a>
+            <a id="resources" class={isActive(navLinks.en[2].href) ? ACTIVE : INACTIVE} href={navLinks.en[2].href}>{navLinks.en[2].label}</a>
+            <a id="projects" class={isActive(navLinks.en[3].href) ? ACTIVE : INACTIVE} href={navLinks.en[3].href}>{navLinks.en[3].label}</a>
           </>
         ) : (
           <>
-            <a id="about" class="hover:underline font-semibold" href={navLinks.fr[1].href}>{navLinks.fr[1].label}</a>
-            <a id="resources" class="hover:underline" href={navLinks.fr[2].href}>{navLinks.fr[2].label}</a>
-            <a id="projects" class="hover:underline" href={navLinks.fr[3].href}>{navLinks.fr[3].label}</a>
+            <a id="about" class={isActive(navLinks.fr[1].href) ? ACTIVE : INACTIVE} href={navLinks.fr[1].href}>{navLinks.fr[1].label}</a>
+            <a id="resources" class={isActive(navLinks.fr[2].href) ? ACTIVE : INACTIVE} href={navLinks.fr[2].href}>{navLinks.fr[2].label}</a>
+            <a id="projects" class={isActive(navLinks.fr[3].href) ? ACTIVE : INACTIVE} href={navLinks.fr[3].href}>{navLinks.fr[3].label}</a>
           </>
         )}
       <LanguageToggle/>

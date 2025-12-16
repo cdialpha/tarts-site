@@ -1,66 +1,156 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro" 
+import Hero from "../components/Hero.astro";
+import { Image } from "astro:assets";
+import Section from "../components/Section.astro";
+
+// Page Images 
+import team1 from "../assets/team-1.jpeg";
+import team2 from "../assets/team-2.jpg";
+import aboutHero from "../assets/about-hero.jpg";
+import opportunity from "../assets/opportunity2.png";
+import clay from "../assets/earth-texture.webp";
+import east from "../assets/east.png";
+import communityHero from "../assets/community-hero.webp";
+
+// Team Profile Pics
+import adelia from "../assets/adelia.png";
+import ed from "../assets/ed.png";
+import anonMan from "../assets/man-profile.png";
+import anonWoman from "../assets/woman-profile.png"; 
+import ndamProfile from "../assets/ndam-tarts.png";
+import calvinProfile from "../assets/calvin-tarts.png";
+import { callSafely } from "astro:actions";
+
+// Social Media Icons 
+import fb from "../assets/icons/fb-icon.svg";
+import ig from "../assets/icons/ig.svg";
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  email?: string;
+  image: ImageMetadata
+}
+const team: TeamMember[] = [
+  { id: '1', name: 'Adelia Happi', role: 'Country Director', email: 'adelia@padk.org', image: adelia },
+  { id: '2', name: 'Edmond Nader', role: 'Founder', email: 'edmond@padk.org', image:ed },
+  { id: '3', name: 'Herve', role: 'Country Director', email: 'herve@padk.org', image: anonMan },
+  { id: '4', name: 'Kevine', role: 'Soil Scientist', email:'tmp@padk.org', image: anonWoman },
+  { id: '5', name: 'Ndam', role: 'Mycology Specialist', email:'tmp@padk.org',image: ndamProfile},
+  { id: '6', name: 'Claris', role: 'Program Manager', email:'', image: anonWoman }, 
+  { id: '7', name: 'Calvin', role: 'IT Volunteer', email:' ', image: calvinProfile } 
+];
+const internships = [
+  {
+    title: 'Plant Nursery Agricultural Internship Opportunity',
+    location: 'Ngotto, Eastern Province of Cameroon',
+    contact: 'Dacia Steiner; +1 (312) 925-1351; dacia@padk.org',
+    salary: 'Transportation to and from Ngotto, room & board included',
+  },
+  {
+    title: 'Rural Land Management & Regenerative Agricultural Internship Opportunity',
+    location: 'Ngotto, Eastern Province of Cameroon',
+    contact: 'Dacia Steiner; +1 (312) 925-1351; dacia@padk.org',
+    salary: 'Transportation to and from Ngotto, room & board included',
+  },
+];
 ---
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PADK – Our Team</title>
+<Layout title="About">
+  <Hero heroTitle="About Us" heroImage={aboutHero}/>  
+  
+  <!--OUR STORY -->
+  <section id="Our Story" aria-label="Our Story" class="bg-b3 text-txt1"> 
+    <div class="relative z-1 bg-[url('../assets/earth-texture.webp')] bg-cover bg-center bg-no-repeat p-6 xl:max-w-6xl mx-auto"> 
+    <h1 class="text-3xl font-bold xl:mt-8 mb-4">Our Story</h1>
+    <p class="text-xl my-4 font-bold"> We are a non-profit organization based in the Kadey Division (East Region) of Cameroon since 2017. We operate in more than 20 communities around the division, including Batouri, the divisional capital.</p>
+    <p class="text-xl my-4 font-bold">PADK has one main vision. Every community has numerous assets and skills, which are sufficient to start and sustain a long term development of the community. It is therefore important to bring the communities to identify and use those assets. Therefore we think that the community development initiative should come from the inhabitants and the external partners should be just in assistance.</p>
+    <div class="flex">
+    <p class="text-xl my-4 font-bold">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  <Image src={east} alt="map of east region of cameroon" class="ml-10 " height={200} width={200}/> 
+    </div>
+  </div>
+  </section>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .cookie-banner {
-      backdrop-filter: blur(4px);
-    }
-  </style>
-</head>
-<body class="antialiased text-gray-800 bg-white">
-
-
-  <!-- Main Content -->
-<Layout title="Home"><h1>HOME, some text<h1/></Layout>
-  <main class="max-w-6xl mx-auto px-6 py-12 space-y-12">
-    <section id="our-story" class="prose prose-lg max-w-none">
-      <h2 class="text-2xl font-bold">OUR STORY</h2>
-      <p>
-        We are a non-profit organization based in the Kadey Division (East Region) of Cameroon since 2017. We operate in more than 20 communities around the division, including Batouri, the divisional capital.
-      </p>
-      <p>
-        PADK has one main vision. Every community has numerous assets and skills, which are sufficient to start and sustain a long term development of the community...
-      </p>
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <img src="https://via.placeholder.com/320x200.png?text=alex+and+students" alt="" class="w-full h-44 object-cover rounded" />
-        <img src="https://via.placeholder.com/320x200.png?text=training" alt="" class="w-full h-44 object-cover rounded" />
-        <img src="https://via.placeholder.com/320x200.png?text=project" alt="" class="w-full h-44 object-cover rounded" />
+  <!-- OUR TEAM --> 
+  <section class="pt-8 bg-g3" aria-label="Team members">
+      <div class="flex-col xl:max-w-6xl  md:max-w-2xl mx-auto">
+      <h1 class="text-2xl"> Our Team </h1>
+      <div class="grid xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 mt-6">
+    {team.map(member => (
+      <div class="card" id={member.id} style="text-align:center; padding:1rem;">
+        <Image src={member.image} height={400} width={400} alt={`Photo of ${member.name}`} loading="lazy"/>
+        <h3 style="margin-top:.6rem; margin-bottom:.2rem;">{member.name}</h3>
+        <div class="muted">{member.role}</div>
+        {member.email ? <div style="margin-top:.5rem;"><a href={`mailto:${member.email}`}>{member.email}</a></div> : null}
       </div>
-    </section>
-    <section id="objectives">
-      <h3 class="text-xl font-semibold mb-6">OUR MAIN OBJECTIVES</h3>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 border rounded-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">1</div>
-            <h4 class="ml-4 font-semibold">Reduce poverty</h4>
-          </div>
-          <p class="text-sm text-gray-700">Reduce the poverty in the communities of the Kadey Division.</p>
-        </div>
+    ))}
+    <div/> </div>
+  </section>
 
-        <div class="p-6 border rounded-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">2</div>
-            <h4 class="ml-4 font-semibold">Reduce dependence</h4>
+<!-- SPECIAL THANKS --> 
+<section class="my-16" aria-label="Team members">
+  <div class="mx-auto max-w-6xl px-4">
+    <h2 class="mb-12 text-3xl font-extrabold leading-tight md:text-4xl">
+      Included in our team, and a special thanks to…
+    </h2>
+    <div class="text-white">
+      <!-- Top image -->
+      <div class="relative overflow-hidden rounded-xl">
+        <Image
+          src={opportunity}
+          alt="Volunteering Opportunities"
+          class="block h-[420px] w-full object-cover md:h-[500px]"
+        />
+        <div class="absolute inset-0 flex items-center">
+          <div class="px-6 md:px-10 lg:px-12 max-w-prose">
+            <p class="text-xl font-bold italic leading-snug md:text-2xl">
+              Our invaluable interns and students from across Cameroon,
+              our future leaders of tomorrow.
+            </p>
           </div>
-          <p class="text-sm text-gray-700">Reduce the dependence of the population on external help.</p>
-        </div>
-
-        <div class="p-6 border rounded-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">3</div>
-            <h4 class="ml-4 font-semibold">Reinforce capacities</h4>
-          </div>
-          <p class="text-sm text-gray-700">Reinforce the capacities of the people to promote a long term development based on the local community assets.</p>
         </div>
       </div>
-    </section>
+
+      <!-- Bottom image -->
+      <div class="relative overflow-hidden rounded-xl">
+        <Image
+          src={communityHero}
+          alt="Community members of Ngotto"
+          class="block h-[420px] w-full object-cover md:h-[500px]"
+        />
+
+        <div class="absolute inset-0 flex items-center justify-end">
+          <div class="px-6 md:px-10 lg:px-12 max-w-prose text-right">
+            <p class="text-xl font-bold italic leading-snug md:text-2xl">
+              The amazing residents of Ngotto for their patience and participation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class=" bg-g3 pt-8 pb-16" aria-label="Volunteering opportunities">
+  <div class="flex-col xl:max-w-6xl md:max-w-2xl mx-auto z-1 relative text-white">     
+    <h2 class=" text-2xl mt-10 font-extrabold"> Join Our Team </h2>
+    <h2 class=" text-2xl mt-10 font-extrabold text-b3"> Domestic Opportunities (Cameroon) </h2>
+    <p class="italic font-extrabold"> Sorry, no current openings  </p> 
+    <p> For International Supporters, Volunteers, and Expats </p> 
+While we are not offering formal employment opportunities for international applicants at this time, there are two meaningful ways to get involved with our work.
+
+    <h2 class=" text-2xl mt-10 font-extrabold"> International & Remote </h2>
+<h3>Remote collaboration</h3><p> Remote collaboration is always welcome. Volunteers can support the organization from anywhere in the world by contributing skills such as research, grant writing, communications, design, mapping, data analysis, curriculum development, documentation, or technical support. These roles are typically flexible, project-based, and adapted to your availability.</p> <p>
+Remote volunteers should be self-directed, reliable, and comfortable working across time zones and cultural contexts. This option is well suited for individuals who want to contribute consistently while remaining based elsewhere.</p>
+<h3>2. On‑Site Long‑Term Farm Stays</h3>
+<p>  For those interested in visiting and living on the farm, we only consider long‑term stays. A minimum commitment of three to six months is required. This ensures that time invested in orientation, relationship‑building, and training is mutually beneficial. </p> <p> 
+On‑site participants are expected to engage fully in daily farm life, including physical labor, communal responsibilities, and learning through practice. Life on the farm is simple and rooted in local rhythms; adaptability, humility, and respect for local leadership and customs are essential. </p> <p>
+If you are interested in either option, please share a clear statement of intent outlining your skills, preferred mode of involvement, availability, and motivations. We prioritize applicants whose expectations align closely with the realities of our work and setting.</p>
+
+</div>
+    ))}
+</section>
+</Layout>

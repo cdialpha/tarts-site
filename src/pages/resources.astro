@@ -1,26 +1,24 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro"
+import Hero from "../components/Hero.astro";
+import { Image } from "astro:assets";
+import resourceHero from "../assets/resource-hero.jpeg";
 ---
 
-<!doctype html>
-<html lang="en">
-<body class="antialiased text-gray-800 bg-white">
-<Layout title="Resources"></Layout>
-  <!-- HERO / TITLE -->
-  <section class="hero-gradient">
+<Layout title="Resources">
+
+<!-- HERO / TITLE -->
+  <Hero heroTitle="RESOURCES" heroImage={resourceHero}>
     <div class="max-w-6xl mx-auto px-6 py-12 text-center">
       <p class="text-sm uppercase text-gray-500 mb-2">RESOURCES</p>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">Our Library of Knowledge & Tools</h1>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">All Resources</h1>
       <p class="text-lg text-gray-700">Explore reports, studies and other resources to support our mission.</p>
     </div>
-  </section>
+  </Hero>
 
   <!-- MAIN CONTENT -->
-  <main class="max-w-6xl mx-auto px-6 py-12 space-y-12">
-
-    <!-- SECTION: Intro / Need for action -->
-    <section class="prose prose-lg max-w-none">
+    <section class="prose prose-lg max-w-none max-w-6xl mx-auto px-6 py-12 space-y-12">
       <h2>The Need for Action…</h2>
       <p>Here you’d insert the introductory text about the situation in the Kadey Division, etc.</p>
     </section>
@@ -105,41 +103,6 @@ import Layout from "../layouts/Layout.astro"
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t">
-    <div class="max-w-6xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6">
-      <div>
-        <div class="text-lg font-semibold">PADK</div>
-        <div class="text-sm text-gray-600 mt-2">PADK is a fiscally sponsored project of the Center for Social Change, a 501(c)3 nonprofit organization.</div>
-      </div>
+  
 
-      <div>
-        <div class="text-sm font-semibold mb-2">Contact</div>
-        <div class="text-sm text-gray-600">Primary office: Ngotto — Batouri and Ngotto, East Cameroon; Douala, Littoral Region</div>
-      </div>
-
-      <div class="flex flex-col items-start gap-3">
-        <div class="text-sm font-semibold">Follow</div>
-        <div class="flex gap-3">
-          <a href="https://www.facebook.com" aria-label="Facebook" class="text-sm hover:underline">Facebook</a>
-          <a href="https://www.instagram.com" aria-label="Instagram" class="text-sm hover:underline">Instagram</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Cookie Banner -->
-  <div class="fixed bottom-6 right-6 cookie-banner bg-white border rounded-lg p-4 shadow-lg max-w-sm">
-    <div class="flex items-start gap-3">
-      <div class="flex-1 text-sm">
-        This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.
-      </div>
-      <div class="flex-shrink-0 flex items-center gap-2">
-        <button class="px-3 py-1 text-sm border rounded">Cookie settings</button>
-        <button class="px-3 py-1 text-sm bg-green-600 text-white rounded">ACCEPT</button>
-      </div>
-    </div>
-  </div>
-
-</body>
-</html>
+</Layout>

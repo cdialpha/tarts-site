@@ -2,6 +2,5 @@
 const {text, href} =  Astro.props;
 ---
 <div> 
-<a href={Astro.props.href ?? "#"} class="p-2 rounded-xl bg-btn font-bold inline-block text-b1 border-2 border-h3">{text}</a>
-
+<a href={href ?? "#"} class="p-2 rounded-xl bg-btn font-bold inline-block text-b1 border-2 border-h3">{text}</a>
 </div>
