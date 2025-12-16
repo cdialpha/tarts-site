@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
+// Components 
 import LanguageToggle from "./LanguageToggle.astro";
+
 const currentLang = Astro.url.pathname.startsWith("/fr") ? "fr" : "en";
 const navLinks = {
   en: [
@@ -42,8 +44,7 @@ const projects = document.getElementById("projects") as HTMLAnchorElement | null
 if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects";
 </script>
 
-<body class="antialiased text-gray-800 bg-g3 text-white font-bold">
-  <header class="border-b">
+<div class="antialiased text-gray-800 bg-g3 text-white font-bold">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a id="home" class="text-xl font-semibold">TARTS</a>
       <nav class="hidden md:flex gap-6 text-sm items-center">   
@@ -61,14 +62,27 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
           </>
         )}
       <LanguageToggle/>
+      <!-- Mobile Menue -->      
       </nav>
-
-      <div class="md:hidden">
-        <!-- mobile menu toggle placeholder -->
-        <button aria-label="open menu" class="p-2 rounded bg-gray-100">
-          ☰
-        </button>
-      </div>
+      <details class="md:hidden relative group">
+        <summary class="list-none p-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80" aria-label="Open menu">
+          <span class="text-xl">☰</span>
+        </summary>
+        <!-- Backdrop (clicking closes menu) -->
+        <div class="fixed inset-0 bg-black/40 z-40" aria-hidden="true" onclick="this.closest('details')?.removeAttribute('open')"> </div>            
+        <!-- Menu panel -->
+        <nav class="fixed top-0 right-0 z-50 h-full w-72 bg-g3 px-6 py-8 flex flex-col gap-6" aria-label="Mobile navigation">
+        <!-- <a href={currentLang === "en" ? "/" : "/fr"} class="text-xl font-semibold">TARTS</a>
+        <div class="flex flex-col gap-4 text-sm"> -->
+          {(currentLang === "en" ? navLinks.en : navLinks.fr)
+              .slice(1)
+              .map((link) => (
+                <a href={link.href} class={isActive(link.href) ? ACTIVE : INACTIVE}>{link.label}</a>
+              ))}
+          </div>
+        </nav>
+      </details>
     </div>
-  </header>
-  </body>
+  </div>
+
+  

@@ -1,18 +1,8 @@
 ---
 const currentPath = Astro.url.pathname;
-// Detect current language from URL prefix
 const currentLang: "en" | "fr" = currentPath.startsWith("/fr") ? "fr" : "en";
-// Compute alternate language + URL
-//const basePath = currentPath.replace(/^\/(en|fr)/, "");
-//const enUrl = `/en${basePath}`;
-//const frUrl = `/fr${basePath}`;
-
 ---
-
-<select
-  id="lang-select"
-  class="px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-700 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
->
+<select id="lang-select" class="px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-700 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
   <option value={"en"} selected={currentLang === "en"}>English</option>
   <option value={"fr"} selected={currentLang === "fr"}>Français</option>
 </select>
@@ -20,10 +10,7 @@ const currentLang: "en" | "fr" = currentPath.startsWith("/fr") ? "fr" : "en";
 <script>
 import { initLanguageToggle } from "../lib/utils/initLangToggle.ts";
 const currentLang: "en" | "fr" = window.location.pathname.startsWith("/fr") ? "fr" : "en";
-
 initLanguageToggle(currentLang);
-console.log("Current Language in LangToggle:", currentLang);
-
 </script>
 
 
