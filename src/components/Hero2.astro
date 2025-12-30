@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+const {heroTitle, heroImage} =  Astro.props;
+---
+<section class="hero-gradient background-image:url('/src/assets/farm.jpeg') bg-cover bg-center relative overflow-hidden h-[500px] flex items-center"> 
+  <Image src= {heroImage} alt="Hero Background" class="absolute object-cover w-full h-full" loading="eager"/>
+
+    <!-- <div class="relative w-3/5 z-10 ml-8 max-w-6xl h-1/4 bg-black/10 p-8 shadow-md backdrop-blur-xs rounded-xl shadow-lg">   -->
+      <div class="relative z-10 max-w-6xl ml-0 top-0 mx-auto px-6 ">
+      <h1 class="text-4xl text-b1 font-bold mb-4 absolute">{heroTitle}</h1>  
+      <!--Optional Sub-header -->
+      <!-- <h2 class="text-white text-xl font-extrabold"> Combining soil health principles, local knowledge, & a thriving regenerative agricultural community </h2> -->  
+      <Button text="JOIN US" href="/about-us"/>
+      </div>
+        </div>
+        <!-- Hero image column -->
+        <div class="flex items-center justify-center">
+          <!-- Replace src with actual image from padk.org if you want exact match -->
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  

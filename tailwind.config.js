@@ -1,12 +1,15 @@
 // @type {import('tailwindcss').Config} 
 module.exports = { 
-    content: ['./src/**/*.astro,html,js,jsx,md,mdx,ts,tsx,' ],
+    content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}'],
     theme: {
         extend: {
             backdropBlur: {
-                xs: '2px', 
-            }
-        },
+                xs: '2px',
+            fontFamily: {
+                ojuju: ["var(--font-ojuju)","sans-serif"],
+      },
+    },
+  },
     plugins: [],
 }
 }

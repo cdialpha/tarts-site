@@ -2,7 +2,8 @@
 import "../styles/global.css";
 // Components 
 import LanguageToggle from "./LanguageToggle.astro";
-
+import tarts from "../assets/tarts-logo-only.png"
+import Image from "astro/components/Image.astro";
 const currentLang = Astro.url.pathname.startsWith("/fr") ? "fr" : "en";
 const navLinks = {
   en: [
@@ -44,9 +45,13 @@ const projects = document.getElementById("projects") as HTMLAnchorElement | null
 if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects";
 </script>
 
-<div class="antialiased text-gray-800 bg-g3 text-white font-bold">
+<div class="antialiased text-gray-800 bg-g3 text-white font-bold sticky top-0 z-100">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a id="home" class="text-xl font-semibold">TARTS</a>
+        <a id="home" class="text-xl font-semibold flex items-center">
+          <Image src={tarts} alt="tarts logo and home page navigational link" height={50} width={50} />
+          <h1 class="text-4xl font-bold text-g1 pl-4 hidden md:block font-ojuju">TARTS</h1>
+        </a>
+
       <nav class="hidden md:flex gap-6 text-sm items-center">   
         {currentLang === "en" ? (
           <>
