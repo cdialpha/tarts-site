@@ -6,7 +6,7 @@ module.exports = {
             backdropBlur: {
                 xs: '2px',
             fontFamily: {
-                ojuju: ["var(--font-ojuju)","sans-serif"],
+                ojuju: ['var(--font-ojuju)'],
       },
     },
   },

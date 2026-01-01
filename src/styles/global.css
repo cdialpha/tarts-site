@@ -14,7 +14,10 @@
     --color-txt2: #1C2D14;
     --color-btn: #007a5e;
 }
-  
+.ojuju {
+    font-family: var(--font-ojuju);
+}  
+
 /* Base cloud layer */
 .cloud-img {
   width: 100vw;                /* each image = viewport width */
@@ -30,34 +33,27 @@
   animation-iteration-count: infinite;
   will-change: transform;
 }
+
 .cloud-track {
   position: absolute;
+  top: 0;
   left: 0;
   display: flex;
-  width: 200%;                 /* two images */
+  width: 200%;
   animation: cloud-loop linear infinite;
   will-change: transform;
 }
 
-/* Seamless horizontal loop */
-@keyframes cloud-drift {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.cloud-img {
+  width: 100vw;
+  height: 15vh;
+  flex-shrink: 0;
 }
+
 @keyframes cloud-loop {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-
-
 
 
 /* Speeds (parallax-ready) */

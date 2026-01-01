@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Font from "astro/components/Font.astro";
 // Components 
 import LanguageToggle from "./LanguageToggle.astro";
 import tarts from "../assets/tarts-logo-only.png"
@@ -49,9 +50,9 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a id="home" class="text-xl font-semibold flex items-center">
           <Image src={tarts} alt="tarts logo and home page navigational link" height={50} width={50} />
-          <h1 class="text-4xl font-bold text-g1 pl-4 hidden md:block font-ojuju">TARTS</h1>
+          <h1 class="text-4xl font-bold text-g1 pl-4 hidden md:block ojuju">TARTS</h1>
         </a>
-
+        
       <nav class="hidden md:flex gap-6 text-sm items-center">   
         {currentLang === "en" ? (
           <>

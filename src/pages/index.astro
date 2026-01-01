@@ -27,53 +27,48 @@ import womensGroup from "../assets/womens-group.jpeg";
 import teamReading from "../assets/team-reading.jpeg";
 ---
 <Layout title="Home">
-<Hero heroTitle="REIMAGINING TROPICAL AGRICULTURE" heroImage={farm}/> 
-<!-- NEED FOR ACTION -->
-  <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
-    <div class="max-w-4xl mx-auto"> 
-    <h2 class="text-2xl font-bold">The need for action… </h2>
-    <div class="flex flex-row items-center gap-8 mt-8">
-    <p class="mb-8"> The East Region in Cameroon has incredible cultural, ecological, and geogrpahic diversity. However, the primary economy is centered around logging, mining, and resource extraction. Most of the local subsistence farmers grow cocoa, tobacco, manioc, plantain, and coffee. Despite the large sums of aid money being spent every year to help local residents, the economic disparities persist and residents have seen very little of this extracted wealth.</p>
-    <Image src={pressures} alt="clipapart" class="rounded-lg h-40 w-40" loading="eager"/>
+<!-- HERO --> 
   <section class="relative overflow-hidden h-[500px] md:h-[600px]">
-    <!-- FARM (static base, all viewports) -->
+<!-- FARM (static base, all viewports) -->
     <Image src={farm} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 invisible md:visible"/>
     <Image src={farmNoSky} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 visible md:hidden"/>
     <!-- CLOUDS (mobile only, parallax-ready) -->
     <div class="absolute inset-0 overflow-hidden z-0">
         <div class="cloud-track cloud-slow top-0">
-            <Image src={clouds} alt="" aria-hidden="true" class="cloud-img" />
-            <Image src={clouds} alt="" aria-hidden="true" class="cloud-img" />
+        <Image src={clouds} alt="" aria-hidden="true" class="cloud-img" />
+        <Image src={clouds} alt="" aria-hidden="true" class="cloud-img" />
+        </div> 
         </div>
-        </div>
-    <!-- Additional Cloud layers (medium) --> 
-    <!--
-    <Image src={clouds} alt="" aria-hidden="true" class="cloud-layer cloud-medium top-8 opacity-85"/>
-    Cloud layer 3 (fast, near)
-    <Image src={clouds} alt="" aria-hidden="true" class=" cloud-layer cloud-fast top-16 opacity-95"/> 
-    -->
+      <!-- <Image src={clouds} alt="" aria-hidden="true" class="cloud-layer cloud-medium top-8 opacity-85"/> -->
+      <!-- Cloud layer 3 (fast, near) -->
+      <!-- <Image src={clouds} alt="" aria-hidden="true" class=" cloud-layer cloud-fast top-16 opacity-95"/> -->
     </div>
     <div class="relative z-20 flex items-center h-full max-w-6xl mx-auto px-6">
       <div>
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-b1">
-          TROPICAL AGRICULTURE RESEARCH AND TRAINING STATION (TARTS)
-        </h1>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-b1"> REIMAGINING TROPICAL AGRICULTURE </h1>
         <Button text="JOIN US" href="/about-us" />
       </div>
     </div>
-
+  </section>
+    <!-- NEED FOR ACTION -->
+  <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+      <h2 class="text-2xl font-bold">The need for action… </h2>
+      <div class="flex flex-row items-center gap-8 mt-8">
+      <p class="mb-8"> The East Region in Cameroon has incredible cultural, ecological, and geogrpahic diversity. However, the primary economy is centered around logging, mining, and resource extraction. Most of the local subsistence farmers grow cocoa, tobacco, manioc, plantain, and coffee. Despite the large sums of aid money being spent every year to help local residents, the economic disparities persist and residents have seen very little of this extracted wealth.</p>
+      <!-- <Image src={pressures} alt="clipapart" class="rounded-lg h-40 w-40" loading="eager"/> -->
+    </div>
     <div class="max-w-4xl mx-auto">         
       <p class="py-4"> Powerful Action for the Development of the Kadey (PADK) is a non-profit organization located in the Kadey department, in the East region of Cameroon. We are focused on regenerative farming, permaculture, economic development, and finding sustainable solutions to our biggest problems.</p>
       <Image src={community2} alt="clipapart" class="rounded-lg" loading="eager"/>
       <div class="flex items-center my-4">
-      <p class="mr-4 font-bold text-lg"> Learn more about our story: here! </p>
-      
+      <p class="mr-4 font-bold text-lg"> Learn more about our story: here! </p>  
   </div>
     </div>
   </section>
 
 <!-- MISSION & VISION -->
-<section class="my-8" aria-label="Our Mission and Vision">
+<section class="my-8 bg-g1" aria-label="Our Mission and Vision">
 <div class="max-w-4xl mx-auto px-6 py-16 space-y-16">
   <div class="flex flex-col md:flex-row items-center gap-10">
     <div class="flex flex-col gap-4 md:w-1/2">
