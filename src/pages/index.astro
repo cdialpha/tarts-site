@@ -5,14 +5,18 @@ import Layout from "../layouts/Layout.astro"
 import { Image } from "astro:assets";
 import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
-// Page Images
+
+// Hero Images
+import clouds from "../assets/clouds.avif";
+import farmNoSky from "../assets/farm-no-sky.png"; 
+import farm from "../assets/farm.jpeg";
+//Page Images
 import pressures from "../assets/pressures.png";
 import community2 from "../assets/thanks-community.jpeg";
 import home1 from "../assets/home1.jpeg";
 import home2 from "../assets/home2.jpeg";
 import lab from "../assets/lab.jpeg";
 import lib from "../assets/library.jpeg";
-import farm from "../assets/farm.jpeg";
 import farm2 from "../assets/farm_2.jpeg";
 import plant from "../assets/plant.png";
 import protect from "../assets/protect.png";
@@ -23,6 +27,7 @@ import womensGroup from "../assets/womens-group.jpeg";
 import teamReading from "../assets/team-reading.jpeg";
 ---
 <Layout title="Home">
+<<<<<<< HEAD
 <Hero heroTitle="REIMAGINING TROPICAL AGRICULTURE" heroImage={farm}/> 
 <!-- NEED FOR ACTION -->
   <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
@@ -31,9 +36,36 @@ import teamReading from "../assets/team-reading.jpeg";
     <div class="flex flex-row items-center gap-8 mt-8">
     <p class="mb-8"> The East Region in Cameroon has incredible cultural, ecological, and geogrpahic diversity. However, the primary economy is centered around logging, mining, and resource extraction. Most of the local subsistence farmers grow cocoa, tobacco, manioc, plantain, and coffee. Despite the large sums of aid money being spent every year to help local residents, the economic disparities persist and residents have seen very little of this extracted wealth.</p>
     <Image src={pressures} alt="clipapart" class="rounded-lg h-40 w-40" loading="eager"/>
+=======
+  <section class="relative overflow-hidden h-[500px] md:h-[600px]">
+    <!-- FARM (static base, all viewports) -->
+    <Image src={farm} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 invisible md:visible"/>
+    <Image src={farmNoSky} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 visible md:hidden"/>
+    <!-- CLOUDS (mobile only, parallax-ready) -->
+    <div class="absolute inset-0 overflow-hidden z-0">
+        <div class="cloud-track cloud-slow top-0">
+            <Image src={clouds} alt="" aria-hidden="true" class="cloud-img" />
+            <Image src={clouds} alt="" aria-hidden="true" class="cloud-img" />
+        </div>
+        </div>
+    <!-- Additional Cloud layers (medium) --> 
+    <!--
+    <Image src={clouds} alt="" aria-hidden="true" class="cloud-layer cloud-medium top-8 opacity-85"/>
+    Cloud layer 3 (fast, near)
+    <Image src={clouds} alt="" aria-hidden="true" class=" cloud-layer cloud-fast top-16 opacity-95"/> 
+    -->
+>>>>>>> 52d9f48 (add index hero animation)
     </div>
+    <div class="relative z-20 flex items-center h-full max-w-6xl mx-auto px-6">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-b1">
+          TROPICAL AGRICULTURE RESEARCH AND TRAINING STATION (TARTS)
+        </h1>
+        <Button text="JOIN US" href="/about-us" />
+      </div>
     </div>
 
+<<<<<<< HEAD
     <div class="max-w-4xl mx-auto">         
       <p class="py-4"> Powerful Action for the Development of the Kadey (PADK) is a non-profit organization located in the Kadey department, in the East region of Cameroon. We are focused on regenerative farming, permaculture, economic development, and finding sustainable solutions to our biggest problems.</p>
       <Image src={community2} alt="clipapart" class="rounded-lg" loading="eager"/>
@@ -42,6 +74,9 @@ import teamReading from "../assets/team-reading.jpeg";
       
   </div>
     </div>
+=======
+  </section>
+>>>>>>> 52d9f48 (add index hero animation)
 
 <!-- MISSION & VISION -->
 <section class="my-8" aria-label="Our Mission and Vision">

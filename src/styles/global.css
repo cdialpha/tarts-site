@@ -15,3 +15,54 @@
     --color-btn: #007a5e;
 }
   
+/* Base cloud layer */
+.cloud-img {
+  width: 100vw;                /* each image = viewport width */
+  flex-shrink: 0;
+}
+.cloud-layer {
+  position: absolute;
+  left: 0;
+  width: 200%;           /* critical for seamless looping */
+  height: auto;
+  animation-name: cloud-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+.cloud-track {
+  position: absolute;
+  left: 0;
+  display: flex;
+  width: 200%;                 /* two images */
+  animation: cloud-loop linear infinite;
+  will-change: transform;
+}
+
+/* Seamless horizontal loop */
+@keyframes cloud-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes cloud-loop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+/* Speeds (parallax-ready) */
+.cloud-slow   { animation-duration: 140s; }
+.cloud-medium { animation-duration: 100s; }
+.cloud-fast   { animation-duration: 70s; }
+
+
