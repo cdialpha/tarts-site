@@ -1,10 +1,10 @@
 ---
 import "../styles/global.css";
-import Font from "astro/components/Font.astro";
+
 // Components 
 import LanguageToggle from "./LanguageToggle.astro";
 import tarts from "../assets/tarts-logo-only.png"
-import Image from "astro/components/Image.astro";
+import {Image} from "astro:assets";
 const currentLang = Astro.url.pathname.startsWith("/fr") ? "fr" : "en";
 const navLinks = {
   en: [
