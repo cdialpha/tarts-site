@@ -44,7 +44,8 @@ import teamReading from "../assets/team-reading.jpeg";
       <!-- Cloud layer 3 (fast, near) -->
       <!-- <Image src={clouds} alt="" aria-hidden="true" class=" cloud-layer cloud-fast top-16 opacity-95"/> -->
     </div>
-    <div class="relative z-20 h-full flex items-center px-6">
+    <!--Glassmorphic -->
+    <div class="relative z-20 h-full md:max-w-4xl md:mx-auto flex items-center px-6">
        <div class="absolute bg-g3/60 backdrop-blur-xs border-4 p-4 border-black/30 shadow-lg left-0 my-auto mx-8 rounded-xl">
         <h1 class="text-4xl md:hidden md:text-6xl font-bold leading-tight text-white ojuju"> TARTS </h1>
         <h1 class="text-2xl hidden md:inline md:text-4xl font-bold leading-tight text-white ojuju"> Redefining Tropical Agriculture </h1>
@@ -90,7 +91,7 @@ import teamReading from "../assets/team-reading.jpeg";
   <div class="flex flex-col md:flex-row items-center gap-10">
     <div class="flex flex-col gap-4 md:w-1/2">
       <h2 class="font-extrabold text-2xl">Our Mission</h2>
-       <p class="text-lg leading-relaxed">
+       <p class="text-md leading-relaxed">
         To work with the local residents, and more broadly, the farmers of Cameroon to foster a holistic agricultural approach. We provide training, research facilities, and experimental fields to promote regenerative agriculture techniques, adapt them to the local context, and serve as a model of integrated farming.
       </p>
     </div>  
@@ -98,14 +99,13 @@ import teamReading from "../assets/team-reading.jpeg";
       <Image
           src={home1}
           alt="Descriptive alt text"
-          class="w-full h-full object-cover"
-          sizes="(min-width: 768px) 256px, 200px"/>
+          class="w-full h-full"/>
     </div>
   </div>
   <div class="flex flex-col md:flex-row-reverse items-center gap-10">
     <div class="flex flex-col gap-4 md:w-1/2">
       <h2 class="font-extrabold text-2xl">Our Vision</h2>
-       <p class="text-lg leading-relaxed">
+       <p class="text-md leading-relaxed">
         We are optimistic of a future where agriculture and sustainability can coexist by promoting influential community leaders, fostering inclusive dialogue, and amplifying the voices of agricultural experts and leaders throughout Cameroon. We host students from a broad range of institutions, all over Cameroon, in order to stimulate the exchange of knowledge, curiosity, and innovation.
       </p>
     </div>  
@@ -206,8 +206,6 @@ import teamReading from "../assets/team-reading.jpeg";
     </div>
   </div>
 </section>
-
-
 
 <!-- PROJECTS -->
   <section id="section-4" class="bg-g2 px-6 py-12 text-white">
