@@ -20,7 +20,6 @@
 
 /* Base cloud layer */
 .cloud-img {
-  width: 100vw;                /* each image = viewport width */
   flex-shrink: 0;
 }
 .cloud-layer {

@@ -8,8 +8,11 @@ import Button from "../components/Button.astro";
 import clouds from "../assets/clouds.avif";
 import farmNoSky from "../assets/farm-no-sky.png"; 
 import farm from "../assets/farm.jpeg";
+// Icons 
+import worm from "../assets/worm.png"
+import planting from "../assets/planting.png"
 //Page Images
-import community2 from "../assets/thanks-community.jpeg";
+import compostSift from "../assets/compost-sift.jpg";
 import home1 from "../assets/home1.jpeg";
 import home2 from "../assets/home2.jpeg";
 import lab from "../assets/lab.jpeg";
@@ -22,6 +25,7 @@ import book from "../assets/book.png";
 import dragonfruit from "../assets/dragonfruit.jpeg";
 import womensGroup from "../assets/womens-group.jpeg";
 import teamReading from "../assets/team-reading.jpeg";
+
 ---
 <Layout title="Home">
 <!-- HERO --> 
@@ -40,10 +44,14 @@ import teamReading from "../assets/team-reading.jpeg";
       <!-- Cloud layer 3 (fast, near) -->
       <!-- <Image src={clouds} alt="" aria-hidden="true" class=" cloud-layer cloud-fast top-16 opacity-95"/> -->
     </div>
-    <div class="relative z-20 flex items-center h-full max-w-6xl mx-auto px-6">
-      <div>
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-b1"> REIMAGINING TROPICAL AGRICULTURE </h1>
-        <Button text="JOIN US" href="/about-us" />
+    <div class="relative z-20 h-full flex items-center px-6">
+       <div class="absolute bg-g3/60 backdrop-blur-xs border-4 p-4 border-black/30 shadow-lg left-0 my-auto mx-8 rounded-xl">
+        <h1 class="text-4xl md:hidden md:text-6xl font-bold leading-tight text-white ojuju"> TARTS </h1>
+        <h1 class="text-2xl hidden md:inline md:text-4xl font-bold leading-tight text-white ojuju"> Redefining Tropical Agriculture </h1>
+        <h2 class="text-xl font-bold leading-tight text-g1 oju"> Sequestering Carbon, Rebuilding Soil Health, & Unlocking Opportunity </h2> 
+            </div>
+  </div>
+
       </div>
     </div>
   </section>
@@ -51,21 +59,33 @@ import teamReading from "../assets/team-reading.jpeg";
   <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
     <div class="max-w-4xl mx-auto"> 
       <h2 class="text-2xl font-bold">The need for action… </h2>
-      <div class="flex flex-row items-center gap-8 mt-8">
-      <p class="mb-8"> The East Region in Cameroon has incredible cultural, ecological, and geogrpahic diversity. However, the primary economy is centered around logging, mining, and resource extraction. Most of the local subsistence farmers grow cocoa, tobacco, manioc, plantain, and coffee. Despite the large sums of aid money being spent every year to help local residents, the economic disparities persist and residents have seen very little of this extracted wealth.</p>
-      <!-- <Image src={pressures} alt="clipapart" class="rounded-lg h-40 w-40" loading="eager"/> -->
-    </div>
-    <div class="max-w-4xl mx-auto">         
-      <p class="py-4"> Powerful Action for the Development of the Kadey (PADK) is a non-profit organization located in the Kadey department, in the East region of Cameroon. We are focused on regenerative farming, permaculture, economic development, and finding sustainable solutions to our biggest problems.</p>
-      <Image src={community2} alt="clipapart" class="rounded-lg" loading="eager"/>
-      <div class="flex items-center my-4">
-      <p class="mr-4 font-bold text-lg"> Learn more about our story: here! </p>  
+      <div class="flex flex-col mt-2">
+         <p class="my-2"> Tropical Agriculture Research and Training Station (TARTS) is a non-profit organization (NGO), located in the East Region of Cameroon, dedicated to bringing fronteir regenerative agricultural practices to rural small-holder farmers.</p>
+        <p class="my-2">The East has incredible cultural, ecological, and geogrpahic diversity. However, the primary economy is centered around logging, mining, and resource extraction. Most of the local subsistence farmers grow cocoa, tobacco, manioc, plantain, and coffee. Despite the large sums of aid money being spent every year to help local residents, the economic disparities persist and residents have seen very little of this extracted wealth.</p>
+      <p class="my-2"> We are focused on regenerative farming, permaculture, economic development, and finding sustainable solutions to our biggest problems.</p>      
+      <Image src={compostSift} alt="clipapart" class="rounded-lg mt-4" loading="eager"/>
+      <!-- LINKS -->
+      <div class="my-4 ml-4 text-md font-bold grid grid-cols-[auto_1fr] grid-rows-2 gap-2 items-center">
+        <p class="items-center"> Hear our story: </p> 
+  
+        <a href="/about" class="flex items-center p-1 w-34 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
+        <Image src={planting} alt="worm" class="h-6 w-6"/>
+        <p class="px-2"> About Us </p>
+      </a>
+      
+        <p class=""> Learn about soil health: </p> 
+  
+        <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
+        <Image src={worm} alt="worm" class="h-6 w-6"/>
+        <p class="px-2"> Soil Food Web </p>
+      </a>
+      </div>
   </div>
     </div>
   </section>
 
 <!-- MISSION & VISION -->
-<section class="my-8 bg-g1" aria-label="Our Mission and Vision">
+<section class=" bg-g1" aria-label="Our Mission and Vision">
 <div class="max-w-4xl mx-auto px-6 py-16 space-y-16">
   <div class="flex flex-col md:flex-row items-center gap-10">
     <div class="flex flex-col gap-4 md:w-1/2">
@@ -100,70 +120,94 @@ import teamReading from "../assets/team-reading.jpeg";
 </div>
     </section>
     
-    <section id="section-2" class="bg-g2 px-6 py-12 text-b1">
-      <div class="flex-col max-w-4xl mx-auto space-y-6"> 
-      <h3 class="text-xl font-semibold mb-6">Tropical Agriculture Research and Training Station (TARTS)</h3>
-      <p> The backbone of PADK is the Tropical Agriculture Research and Training Station (TARTS). TARTS is the primary site where we conduct our field trials and lab research.</p>
-      <p>Our facilities & resources include:</p>
-      <div class="grid md:grid-cols-3 md:grid-flow-row gap-6">
-         <div class="flex-col text-center"> <h1 class="font-extrabold text-lg">Fileds</h1> <Image
-              src={farm2}
-              alt="clipapart"
-              class="rounded-lg object-cover"
-              loading="eager"/>
-              </div>     
-              <div class="flex-col text-center"> <h1 class="font-extrabold text-lg">Laboratory</h1> 
-              <Image
-              src={lab}
-              alt="clipapart"
-              class="rounded-lg object-cover"
-              loading="eager"/> </div>
-              <div class="flex-col text-center"> <h1 class="font-extrabold text-lg">Academic Center</h1> 
-                        <Image
-              src={lib}
-              alt="clipapart"
-              class="rounded-lg object-cover"
-              loading="eager"/> </div>
-          <div class="text-center"><p>Numerous Test Plots; 1 ha. each of Cocoa & Coffee; Pasture Improvement Plots; Vanilla Production Facilities; </p> </div>
-                   <div class="text-center"><p> Lab Grade Microscopy; Media Lab & Culture; Well stocked chemical inventory </p> </div>
-                            <div class="text-center"><p> Growing Technical Library;Office & Conference Space; Dormitories & Ammenities </p> </div>
-        </div>
+<!-- TARTS 2  -->
+<section id="section-2" class="bg-g3 px-6 py-12 text-g1">
+  <div class="max-w-4xl mx-auto space-y-6">
+
+    <h3 class="text-2xl font-bold">
+    WHAT'S AT TARTS ? 
+    </h3>
+    <p> TARTS is the primary site where we conduct our field trials and lab research.</p>
+    <p> We have heavily invested in our on-site capabilities & resources to include:</p>
+
+    <!-- Responsive grid -->
+    <div class="grid gap-8 md:grid-cols-3">
+
+      <!-- Fields -->
+      <div class="space-y-3 text-center">
+        <h4 class="font-extrabold text-lg">Fields</h4>
+        <Image src={farm2} alt="" class="rounded-lg object-cover w-full" />
+        <p class="text-sm">
+          Numerous Test Plots; 1 ha. each of Cocoa & Coffee; Pasture Improvement Plots; Vanilla Production Facilities
+        </p>
       </div>
+
+      <!-- Laboratory -->
+      <div class="space-y-3 text-center">
+        <h4 class="font-extrabold text-lg">Laboratory</h4>
+        <Image src={lab} alt="" class="rounded-lg object-cover w-full" />
+        <p class="text-sm">
+          Lab Grade Microscopy; Media Lab & Culture; Well stocked chemical inventory
+        </p>
       </div>
-    </section>
-<!--  GOALS -->
-    <section id="section-3" class="bg-g1 px-6 py-12 text-g3">
-      <div class="flex-col max-w-4xl mx-auto space-y-6"> 
-      <h2 class="text-3xl font-semibold mb-6"> OUR GOALS </h3>
-      <div class="grid grid-cols-4 grid-flow-row gap-6 text-sm md:text-lg">
-          <Image
-              src={plant}
-              alt="clipapart"
-              class="object-cover border-b-4 border-g3 py-4"
-              loading="eager"/>
-          <Image
-              src={protect}
-              alt="clipapart"
-              class="object-cover  border-b-4 border-g3 py-4"
-              loading="eager"/>
-          <Image
-          src={teach}
-          alt="clipapart"
-          class="object-cover border-b-4 border-g3 py-4"
-          loading="eager"/>
-       <Image
-          src={book}
-          alt="clipapart"
-          class="object-cover border-b-4 border-g3 py-4"
-          loading="eager"/> 
-          <div><p>Promoting regenerative farming practices to increase the yields of current cash crops</p></div>
-          <div><p>Growing foods with the strongest biodiversity and disease prevention properties to improve community health.</p></div>
-          <div><p>Use our facilities for demonstrations and  workshops to diseminate our findings.</p></div>
-          <div><p>Conducting research to build student capacity & contextualize regenerative principals.</p></div>
-        </div>
+
+      <!-- Academic Center -->
+      <div class="space-y-3 text-center">
+        <h4 class="font-extrabold text-lg">Academic Center</h4>
+        <Image src={lib} alt="" class="rounded-lg object-cover w-full" />
+        <p class="text-sm">
+          Growing Technical Library; Office & Conference Space; Dormitories & Amenities
+        </p>
       </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- GOALS -->
+<section id="section-3" class="bg-g1 px-6 py-12 text-g3">
+  <div class="max-w-4xl mx-auto space-y-6">
+
+    <h2 class="text-3xl font-semibold">OUR GOALS</h2>
+
+<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+
+      <!-- Goal 1 -->
+        <div class="flex items-center gap-3 md:flex-col md:text-center">
+    <Image src={plant} alt="" class="w-12 md:w-16" />
+    <p class="text-sm md:text-base">
+      Promoting regenerative farming practices to increase yields.
+    </p>
+  </div>
+
+    <div class="flex items-center gap-3 md:flex-col md:text-center">
+    <Image src={protect} alt="" class="w-12 md:w-16" />
+    <p class="text-sm md:text-base">
+      Growing biodiverse, disease-resistant foods for community health.
+    </p>
+  </div>
+
+  <div class="flex items-center gap-3 md:flex-col md:text-center">
+    <Image src={teach} alt="" class="w-12 md:w-16" />
+    <p class="text-sm md:text-base">
+      Demonstrations and workshops to share findings.
+    </p>
+  </div>
+
+  <div class="flex items-center gap-3 md:flex-col md:text-center">
+    <Image src={book} alt="" class="w-12 md:w-16" />
+    <p class="text-sm md:text-base">
+      Research to build student capacity and local context.
+    </p>
+  </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
+
+
 
 <!-- PROJECTS -->
   <section id="section-4" class="bg-g2 px-6 py-12 text-white">

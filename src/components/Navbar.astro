@@ -56,13 +56,15 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
       <nav class="hidden md:flex gap-6 text-sm items-center">   
         {currentLang === "en" ? (
           <>
+            <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="https://secure.directbiller.com/db-payer-ui/#/"> 💚 Donate </a> </div>
             <a id="about" class={isActive(navLinks.en[1].href) ? ACTIVE : INACTIVE} href={navLinks.en[1].href}>{navLinks.en[1].label}</a>
             <a id="resources" class={isActive(navLinks.en[2].href) ? ACTIVE : INACTIVE} href={navLinks.en[2].href}>{navLinks.en[2].label}</a>
             <a id="projects" class={isActive(navLinks.en[3].href) ? ACTIVE : INACTIVE} href={navLinks.en[3].href}>{navLinks.en[3].label}</a>
           </>
         ) : (
           <>
-            <a id="about" class={isActive(navLinks.fr[1].href) ? ACTIVE : INACTIVE} href={navLinks.fr[1].href}>{navLinks.fr[1].label}</a>
+          <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="https://secure.directbiller.com/db-payer-ui/#/"> 💚 Donate </a> </div>
+                <a id="about" class={isActive(navLinks.fr[1].href) ? ACTIVE : INACTIVE} href={navLinks.fr[1].href}>{navLinks.fr[1].label}</a>
             <a id="resources" class={isActive(navLinks.fr[2].href) ? ACTIVE : INACTIVE} href={navLinks.fr[2].href}>{navLinks.fr[2].label}</a>
             <a id="projects" class={isActive(navLinks.fr[3].href) ? ACTIVE : INACTIVE} href={navLinks.fr[3].href}>{navLinks.fr[3].label}</a>
           </>
@@ -70,7 +72,11 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
       <LanguageToggle/>
       <!-- Mobile Menue -->      
       </nav>
-      <details class="md:hidden relative group">
+
+      <div class="md:hidden flex">
+      <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2 mr-8"><a href="https://secure.directbiller.com/db-payer-ui/#/"> 💚 Donate </a> </div>  
+      <details class="relative group">
+        
         <summary class="list-none p-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80" aria-label="Open menu">
           <span class="text-xl">☰</span>
         </summary>
