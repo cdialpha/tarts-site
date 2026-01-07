@@ -17,8 +17,10 @@ const navLinks = {
       label: "PROJECTS",
       subLinks: [
         { href: "/projects", label: "All Projects" },
-        { href: "/projects/soil", label: "Soil" },
-        { href: "/projects/animals", label: "Animals" },
+        { href: "/projects/soil", label: "Improving Soil Fertility" },
+        { href: "/projects/animals", label: "Animal Husbandry" },
+        { href: "/projects/foodsystems", label: "Food Systems" },
+        { href: "/projects/community", label: "Community Projects" },
       ],
     },
   ],
@@ -33,21 +35,32 @@ const navLinks = {
         { href: "/fr/projects", label: "Tous les projets" },
         { href: "/fr/projects/soil", label: "Soil" },
         { href: "/fr/projects/animals", label: "Animals" },
+        { href: "/projects/foodsystems", label: "Food Systems" },
+        { href: "/projects/community", label: "Community Projects" },
       ],
     },
   ],
 };
 
 // Stlyling for active vs inactive links
-const pathname = Astro.url.pathname;
-const normalize = (path: string) => path.replace(/\/$/, "");
+
+const normalize = (path: string) =>
+  path.replace(/\/$/, "") || "/";
+const pathname = normalize(Astro.url.pathname);
+
 const isActive = (href: string) => {
-  const current = normalize(pathname);
+const target = normalize(href);
+return pathname === target;
+};
+const isSectionActive = (baseHref: string) => {
+  const base = normalize(baseHref);
+  return pathname === base || pathname.startsWith(`${base}/`);
+};
+const isSubActive = (href: string) => {
   const target = normalize(href);
-  return (
-    current === target ||
-    current.startsWith(`${target}/`)
-  );} 
+  return pathname === target;
+};
+
 const ACTIVE = "font-extrabold text-white underline underline-offset-4";
 const INACTIVE = "text-white/70 hover:text-white hover:underline";
 ---
@@ -82,13 +95,11 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
         <a id="projects"
            class={`${isActive(navLinks.en[3].href) ? ACTIVE : INACTIVE} flex items-center px-2 py-1`}
            href={navLinks.en[3].href}>
-          {navLinks.en[3].label}
-          <svg class="ml-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 111.14.976l-4 4.69a.75.75 0 01-1.14 0l-4-4.69a.75.75 0 01.02-1.06z"/>
-          </svg>
+          PROJECTS
+          <svg class="ml-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 111.14.976l-4 4.69a.75.75 0 01-1.14 0l-4-4.69a.75.75 0 01.02-1.06z"/></svg>
         </a>
         <div class="absolute left-0 mt-1 w-48 bg-g3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-          {(currentLang === "en" ? navLinks.en[3].subLinks : navLinks.fr[3].subLinks).map((sub) => (
+          {(navLinks.en[3].subLinks).map((sub) => (
             <a href={sub.href} class="block px-4 py-2 text-white/80 hover:text-white hover:bg-g1">
               {sub.label}
             </a>
@@ -111,7 +122,7 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
           </svg>
         </a>
         <div class="absolute left-0 mt-1 w-48 bg-g3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-          {(currentLang === "en" ? navLinks.en[3].subLinks : navLinks.fr[3].subLinks).map((sub) => (
+          {(navLinks.fr[3].subLinks).map((sub) => (
             <a href={sub.href} class="block px-4 py-2 text-white/80 hover:text-white hover:bg-g1">
               {sub.label}
             </a>
@@ -137,14 +148,41 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
         <nav class="fixed top-0 right-0 z-50 h-full w-72 bg-g3 px-6 py-8 flex flex-col gap-6" aria-label="Mobile navigation">
         <!-- <a href={currentLang === "en" ? "/" : "/fr"} class="text-xl font-semibold">TARTS</a>
         <div class="flex flex-col gap-4 text-sm"> -->
-          {(currentLang === "en" ? navLinks.en : navLinks.fr)
-              .slice(1)
-              .map((link) => (
-                <a href={link.href} class={isActive(link.href) ? ACTIVE : INACTIVE}>{link.label}</a>
-              ))}
-          </div>
-        </nav>
-      </details>
+      
+
+                  {(currentLang === "en" ? navLinks.en : navLinks.fr).slice(1).map((link) =>
+          link.subLinks ? (
+            <details class="group">
+              <summary class="flex items-center justify-between cursor-pointer text-white/80 hover:text-white">
+                <span>{link.label}</span>
+                <span class="transition-transform group-open:rotate-90">▸</span>
+              </summary>
+
+              <div class="ml-4 mt-2 flex flex-col gap-2">
+                {link.subLinks.map((sub) => (
+                  <a
+                    href={sub.href}
+                    class={`text-sm ${
+                      isActive(sub.href) ? ACTIVE : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {sub.label}
+                  </a>
+                ))}
+              </div>
+            </details>
+          ) : (
+            <a
+              href={link.href}
+              class={isActive(link.href) ? ACTIVE : INACTIVE}
+            >
+              {link.label}
+            </a>
+          )
+        )}
+                  </div>
+                </nav>
+              </details>
     </div>
   </div>
 

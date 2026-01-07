@@ -1,0 +1,73 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro"
+import foodsystemsHero from "../../assets/foodsystems-hero.jpg";
+import Image from "astro/components/Image.astro";
+
+import worm from "../../assets/worm.png"
+import planting from "../../assets/planting.png"
+---
+
+<Layout title="Projects">
+
+<!-- HERO --> 
+  <section class="relative overflow-hidden h-[500px] md:h-[600px]">
+    <Image src={foodsystemsHero} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10"/>
+    <div class="absolute inset-0 overflow-hidden z-0">
+        <div class="cloud-track cloud-slow top-0">
+        </div> 
+        </div>
+     </div>
+    <!--Glassmorphic Overlay-->
+    <div class="relative z-20 h-full flex items-center px-6 md:max-w-4xl md:mx-auto">
+       <div class="absolute bg-g3/60 backdrop-blur-xs border-4 p-4 border-black/30 shadow-lg left-0 my-auto mx-8 rounded-xl">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white ojuju"> Food Systems </h1>
+        <h2 class="text-xl font-bold leading-tight text-g1 oju"> Improving Food Security, Providing Resources to Small-holder Farmers, and Creating Opportunities </h2> 
+            </div>
+  </div>
+  </section>
+  
+  <!-- Projects Overview -->
+  <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+      <h2 class="text-2xl font-bold">Developing Roadmaps for High Value Markets </h2>
+      <div class="flex flex-col mt-2">
+        <p class="my-2"> 		○ We grow a variety of commercial crops to sustain PADK operations, but also to demonstrate how local farmers can increase their productivity and profits, all while adhering to sustainable and regenerative practices.      
+  </p>  
+</div>
+
+ <div class="max-w-4xl mx-auto mt-8"> 
+      <h2 class="text-2xl font-bold">Fruit Trees & Non Timber Forest Products (NTFPs)  </h2>
+      <div class="flex flex-col mt-2">
+        <p class="my-2"> 	○ NTFPs are resources obtained from forests other than timber or wood. They include a wide range of products such as fruits, nuts, berries, seeds, mushrooms, medicinal plants, fibers, resins, latex, honey, and various game animals. This aligns strongly with PADK’s ABCD Methodology. Exploitation of NTFP’s rely on the existing ecosystem, and combined with Analog Forestry practices can promote economic development and regenative agriculture practices.  </p>
+        <p class="my-2">Alley cropping is a practice whereby trees are planted between rows of a primary cash crop, in our case cocao and coffee. The crops can benefit from the trees’ shade, reduced wind speed, and biodiversity. The soil benefits from leaf litter, water retention, nutrient cycling.
+        <p class="my-2"> TARTS works with both native species, and other introduced tropical species. It is important to note that we evaluate the use of exotic species to ensure that they pose minimal ecological threat. See below to learn more about some of the  different species we are experimenting with:</p>	
+        <p class="my-2">Inga sp.  – Inga is genus of tropical trees and shrubs that are native to the tropical Americas. They are incredibly and used for (i) alley cropping (ii) fast growing fuel-wood (iiI) polanator resource & (iv) contribute to nitrogen fixation.</p>
+        <p class="my-2">Moringa oleifera – Needs almost no introduction. This plant originally from South Asia, has been adapted to many tropical climates and exploded in popularity over the decades. Moringa is a fast growing tree with incredible nutrition and medicinal properties. We harvest, dry it’s leaves, and transform them into an extremely nutricious powder. We regularly engage in community distributions to promote childhood nutrition.</p>
+        </div>
+      
+	 <div class="max-w-4xl mx-auto  mt-8"> 
+      <h2 class="text-2xl font-bold"> Seed Sovereignty, Market Garden & Horticulture </h2>
+      <div class="flex flex-col mt-2">
+        <p class="my-2">The Cameroonian seed market is consumed by large industries importing hybrid seed. While these strains are productive, the seeds produced by these hybrid plants will not necessarily have the same traits as the parent plants and may exhibit a wide range of variations.</p>
+		<p class="my-2"> The seed sovereignty movement is a grassroots movement that seeks to promote the rights of farmers and communities to save, exchange, and use their own seeds. At its core, the movement seeks to empower farmers and communities to reclaim control over their food systems by preserving traditional knowledge, promoting biodiversity, and rejecting the industrialized, corporate-controlled agriculture that dominates the modern food system. TARTS is committed to refining our seed saving practices and promoting the use of heirloom varieties, to reduce market gardeners’ dependency on the seed market.   </p>
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+        
+  </div>
+    </div>
+  </section>
+
+</Layout>
