@@ -11,6 +11,12 @@ import don2 from "../assets/Donation2.png"
 import don3 from "../assets/Donation3.png"
 import don4 from "../assets/Donation4.png"
 import don5 from "../assets/Donation5.png"
+import spon1 from "../assets/sponsors/A2E.png"
+import spon2 from "../assets/sponsors/alpicam.png"
+import spon3 from "../assets/sponsors/jogoo.png"
+import spon4 from "../assets/sponsors/MCT.png"
+import spon5 from "../assets/sponsors/KDF.png"
+import spon6 from "../assets/sponsors/SFW.png"
 ---
 
 <Layout title="Projects">
@@ -60,8 +66,8 @@ import don5 from "../assets/Donation5.png"
       </div>
     </div>
   </section>
-        <!-- Projects Overview -->
-  <section id="section-2" class="bg-g3 px-6 py-12 mb-0 text-b1">
+<!-- IMPACT -->
+  <section id="section-2" class="bg-g1 text-black px-6 py-6 md:py-12 mb-0 text-b1">
     <div class="max-w-4xl mx-auto"> 
       <h2 class="text-2xl font-bold"> Transparency & Assurance</h2>
       <div class="flex flex-col mt-2">
@@ -72,20 +78,40 @@ import don5 from "../assets/Donation5.png"
       <h2 class="text-2xl font-bold my-4">YOUR IMPACT</h2>
         <Image src={ME} alt="placeholder for M&E" /> 
         <p class="my-2">Some placeholder text for our Monitoring & Evaluation Efforts</p> 
-        
+        <p class="my-2">Check out our previous years' annual reports: </p> 
+        <div class="my-4 flex flex-col">
+          <a href="/about" class="p-2 my-2 w-60 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2"> 🗎 2023 Annual Report</a>
+          <a href="/about" class="p-2 my-2 w-70 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2"> 🗎 2024 & 2025 Annual Reports</a>
+      </div>
+  </div>
+    </section>
+<!-- SPONSORS -->
+    <section id="section-1" class="bg-g3 px-6 py-6 md:py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
      <h2 class="text-2xl font-bold my-4">OUR SPONSORS </h2>
-        <p class="my-2">Through our Family Rabbit Project and other initiatives, we demonstrate how small-scale animal husbandry can rebuild soil while providing protein and income for rural families.</p> 
-        <p class="my-2"></p> 
-        <p class="my-2"></p> 
-        
-    <Image src={laboratory} alt="man with rabbits" /> 
+        <p class="my-2">We are incredibly grateful for the opportunities our sponsors have provided. From their support we've been able to build out our facilities, train dozens of students in regenerative agriculture, and improve the lives of countless small-holder farmers.</p> 
 
+        <div class="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-row-2 gap-2 mb-6 align-center place-items-center ">
+        <Image src={spon1} alt="sponsor 1" class="md:h-30 md:w-30"/> 
+        <Image src={spon2} alt="sponsor 2" class="my-auto"/> 
+        <Image src={spon3} alt="sponsor 3" class="my-auto"/> 
+        <Image src={spon4} alt="sponsor 4" class="md:h-30 md:w-30"/> 
+        <Image src={spon5} alt="sponsor 5" class="md:h-30 md:w-35"/> 
+        <Image src={spon6} alt="sponsor 6" class="md:h-30 md:w-30"/> 
+      </div>
+   </div>
+  </section>
+
+<!-- SECTION XYZ -->
+   <section id="section-1" class="bg-g1 text-black px-6 py-12 mb-0">
+    <div class="max-w-4xl mx-auto">   
     <h2 class="text-2xl font-bold my-4">Third Section Etc.</h2>
         <p class="my-2">Our projects demonstrate this symbiotic relationship in action. Through vermiculture, we harness the power of earthworms to transform organic waste into black gold—nutrient-dense compost that brings depleted soils back to life. Our hügelkultur beds incorporate woody debris that slowly breaks down, creating habitat for beneficial organisms while retaining moisture. </p> 
         <p class="my-2">When we integrate animals thoughtfully into our agricultural systems—whether through managed grazing, composting, or cultivating beneficial insects—we're not just improving yields. We're restoring the living fabric of our land, building resilience against drought and erosion, and creating farms that can sustain our communities for generations to come</p> 
         <p class="my-2"></p> 
-        
+    <Image src={laboratory} alt="man with rabbits" />         
+  </div>     
+  </section> 
 
-  </section>
 
 </Layout>
