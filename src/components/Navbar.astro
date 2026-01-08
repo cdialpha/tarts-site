@@ -12,6 +12,7 @@ const navLinks = {
     { href: "/", label: "TARTS" },
     { href: "/about", label: "ABOUT" },
     { href: "/resources", label: "RESOURCES" },
+    { href: "/donate", label: "DONATE"},
     {
       href: "/projects",
       label: "PROJECTS",
@@ -28,6 +29,7 @@ const navLinks = {
     { href: "/fr", label: "TARTS" },
     { href: "/fr/about", label: "A PROPOS" },
     { href: "/fr/resources", label: "RESSOURCES" },
+    { href: "/donate", label: "DONATE" }, 
     {
       href: "/fr/projects",
       label: "PROJETS",
@@ -88,7 +90,7 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
       <nav class="hidden md:flex gap-6 text-sm items-center">   
         {currentLang === "en" ? (
           <>
-            <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="https://secure.directbiller.com/db-payer-ui/#/"> 💚 Donate </a> </div>
+            <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="/donate"> 💚 Donate </a> </div>
             <a id="about" class={isActive(navLinks.en[1].href) ? ACTIVE : INACTIVE} href={navLinks.en[1].href}>{navLinks.en[1].label}</a>
             <a id="resources" class={isActive(navLinks.en[2].href) ? ACTIVE : INACTIVE} href={navLinks.en[2].href}>{navLinks.en[2].label}</a>
       <div class="relative group inline-block z-50">
@@ -99,7 +101,7 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
           <svg class="ml-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 111.14.976l-4 4.69a.75.75 0 01-1.14 0l-4-4.69a.75.75 0 01.02-1.06z"/></svg>
         </a>
         <div class="absolute left-0 mt-1 w-48 bg-g3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-          {(navLinks.en[3].subLinks).map((sub) => (
+          {(navLinks.en[4].subLinks).map((sub) => (
             <a href={sub.href} class="block px-4 py-2 text-white/80 hover:text-white hover:bg-g1">
               {sub.label}
             </a>
@@ -109,20 +111,20 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
     </>
         ) : (
           <>
-          <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="https://secure.directbiller.com/db-payer-ui/#/"> 💚 Donate </a> </div>
+          <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="/donate"> 💚 Faire un Don </a> </div>
                 <a id="about" class={isActive(navLinks.fr[1].href) ? ACTIVE : INACTIVE} href={navLinks.fr[1].href}>{navLinks.fr[1].label}</a>
             <a id="resources" class={isActive(navLinks.fr[2].href) ? ACTIVE : INACTIVE} href={navLinks.fr[2].href}>{navLinks.fr[2].label}</a>
             <div class="relative group inline-block z-50">
         <a id="projects"
            class={`${isActive(navLinks.en[3].href) ? ACTIVE : INACTIVE} flex items-center px-2 py-1`}
-           href={navLinks.en[3].href}>
-          {navLinks.en[3].label}
+           href={navLinks.en[4].href}>
+          {navLinks.en[4].label}
           <svg class="ml-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
             <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 111.14.976l-4 4.69a.75.75 0 01-1.14 0l-4-4.69a.75.75 0 01.02-1.06z"/>
           </svg>
         </a>
         <div class="absolute left-0 mt-1 w-48 bg-g3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-          {(navLinks.fr[3].subLinks).map((sub) => (
+          {(navLinks.fr[4].subLinks).map((sub) => (
             <a href={sub.href} class="block px-4 py-2 text-white/80 hover:text-white hover:bg-g1">
               {sub.label}
             </a>
