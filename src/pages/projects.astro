@@ -1,17 +1,20 @@
 ---
 import "../styles/global.css";
+// Components 
 import Layout from "../layouts/Layout.astro"
-import projectsHero from "../assets/projects-hero.jpeg";
 import Image from "astro/components/Image.astro";
+// Images 
+import projectsHero from "../assets/projects-hero.jpeg";
 import compostSift from "../assets/compost-sift.jpg"
 import worm from "../assets/worm.png"
 import planting from "../assets/planting.png"
+import rabbitHero from "../assets/rabbit-hero.jpeg"
+
 ---
-
 <Layout title="Projects">
-
-<!-- HERO --> 
-  <section class="relative overflow-hidden h-[500px] md:h-[600px]">
+<script async data-uid="7ce4462fd4" src="https://tarts.kit.com/7ce4462fd4/index.js" type="module"></script>
+  <!-- HERO --> 
+  <section class="relative overflow-hidden h-[500px] md:h-[600px] z-0">
     <Image src={projectsHero} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10"/>
     <div class="absolute inset-0 overflow-hidden z-0">
         <div class="cloud-track cloud-slow top-0">
@@ -55,23 +58,37 @@ import planting from "../assets/planting.png"
         <p class="px-2"> Soil Food Web </p>
       </a>
       </div>
+
   </div>
     </div>
   </section>
-  
 
-    <!-- CTA SECTION -->
-    <section class="bg-white border rounded-lg p-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="text-xl font-semibold">Want to work with us?</h3>
-          <p class="text-gray-700 mt-2">Whether you're a donor, volunteer, researcher or partner — your time and contribution make a difference.</p>
-        </div>
+ <!-- Projects Overview -->
+  <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+      <h2 class="text-2xl font-bold">Animals & Soil: An Overview </h2>
+      <div class="flex flex-col mt-2">
+        <p  class="my-2"> In the forests and savannas of East Cameroon, soil isn't just dirt—it's a living ecosystem where animals play an irreplaceable role. From the earthworms tunneling through the ground to the livestock grazing above it, animals are nature's master engineers, constantly rebuilding and enriching the soil beneath our feet. In regenerative agriculture, we don't just grow crops; we cultivate entire ecosystems where animals and soil work together to create abundance.</p> 
+        <p  class="my-2">Every creature contributes to soil health in its own way. Earthworms digest organic matter and excrete nutrient-rich castings while creating channels that allow air and water to penetrate deep into the earth. Insects break down plant material, making nutrients available to microorganisms. Even larger animals like chickens, goats, and cattle deposit manure that feeds billions of soil microbes, while their hooves gently aerate compacted ground. This intricate dance between animals and soil creates a self-sustaining cycle: healthy soil supports diverse animal life, and animals in turn regenerate the soil.</p>
+        <p class="my-2">
+          A regenerativist approach seeks to optimize production by leveraging natural processes and maintaining ecosystem health.
+        </p>
 
-        <div class="flex gap-3">
-          <a href="/contact-us" class="px-5 py-3 bg-yellow-600 text-white rounded shadow">Get in touch</a>
-          <a href="/join-our-team" class="px-5 py-3 border border-gray-300 rounded hover:bg-gray-100">Join our team</a>
-        </div>
-      </div>
-    </section>
+      <h2 class="text-2xl font-bold my-4">Mob Grazing</h2>
+        <p class="my-2">Grazing management practices such as planned grazing and paddocking can improve soil health in several ways. Firstly, they promote even distribution of grazing pressure across the pasture, preventing overgrazing in certain areas and allowing for uniform plant growth and root development.</p>      
+        <p class="my-2">Secondly, rotational grazing systems provide periods of rest for pastures, allowing for plant regrowth and root system recovery, which enhances soil stability and organic matter accumulation.</p>  
+        <p class="my-2">Thirdly, grazing animals, through their trampling and manure deposition, contribute to nutrient cycling and organic matter incorporation into the soil, improving soil fertility. Lastly, the physical action of animal hooves on the soil surface can help break up compacted soil layers, improving soil structure and water infiltration.</p> 
+        
+     <h2 class="text-2xl font-bold my-4">Family Rabbit Project</h2>
+        <p class="my-2">Through our Family Rabbit Project and other initiatives, we demonstrate how small-scale animal husbandry can rebuild soil while providing protein and income for rural families.</p> 
+        <p class="my-2"></p> 
+        <p class="my-2"></p> 
+        
+ <Image src={rabbitHero} alt="man with rabbits" /> 
+
+    <h2 class="text-2xl font-bold my-4">Third Section Etc.</h2>
+        <p class="my-2">Our projects demonstrate this symbiotic relationship in action. Through vermiculture, we harness the power of earthworms to transform organic waste into black gold—nutrient-dense compost that brings depleted soils back to life. Our hügelkultur beds incorporate woody debris that slowly breaks down, creating habitat for beneficial organisms while retaining moisture. </p> 
+        <p class="my-2">When we integrate animals thoughtfully into our agricultural systems—whether through managed grazing, composting, or cultivating beneficial insects—we're not just improving yields. We're restoring the living fabric of our land, building resilience against drought and erosion, and creating farms that can sustain our communities for generations to come</p> 
+        <p class="my-2"></p> 
+  </section>
 </Layout>
