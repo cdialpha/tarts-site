@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-
 // Components 
 import LanguageToggle from "./LanguageToggle.astro";
 import tarts from "../assets/tarts-logo-only.png"
@@ -65,6 +64,7 @@ const isSubActive = (href: string) => {
 
 const ACTIVE = "font-extrabold text-white underline underline-offset-4";
 const INACTIVE = "text-white/70 hover:text-white hover:underline";
+// TODO  : Fix French Donation Button on mobile 
 ---
 <script>
 const currentPath = window.location.pathname
@@ -138,7 +138,11 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
       <!-- Mobile Menu -->      
       </nav>
       <div class="md:hidden flex">
-      <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2 mr-8"><a href="https://secure.directbiller.com/db-payer-ui/#/"> 💚 Donate </a> </div>  
+      
+      { currentLang === "en" ? (
+        <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2 mr-8"><a href="/donate"> 💚 Donate </a> </div>) : (
+        <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="/donate"> 💚 Faire un Don </a> </div>)
+      }
       <details class="relative group">
         
         <summary class="list-none p-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80" aria-label="Open menu">
