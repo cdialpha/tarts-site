@@ -19,9 +19,7 @@
 }  
 
 /* Base cloud layer */
-.cloud-img {
-  flex-shrink: 0;
-}
+
 .cloud-layer {
   position: absolute;
   left: 0;
@@ -45,7 +43,7 @@
 
 .cloud-img {
   width: 100vw;
-  height: 15vh;
+  height: 20vh;
   flex-shrink: 0;
 }
 
