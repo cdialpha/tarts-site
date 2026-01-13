@@ -3,6 +3,7 @@ import "../styles/global.css";
 // Components 
 import Layout from "../layouts/Layout.astro"
 import Image from "astro/components/Image.astro";
+import Subscribe from "../components/SubscribeModal.astro"
 // Images 
 import projectsHero from "../assets/projects-hero.jpeg";
 import compostSift from "../assets/compost-sift.jpg"
@@ -12,7 +13,9 @@ import rabbitHero from "../assets/rabbit-hero.jpeg"
 
 ---
 <Layout title="Projects">
-<script async data-uid="7ce4462fd4" src="https://tarts.kit.com/7ce4462fd4/index.js" type="module"></script>
+
+  <Subscribe/>
+
   <!-- HERO --> 
   <section class="relative overflow-hidden h-[500px] md:h-[600px] z-0">
     <Image src={projectsHero} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10"/>
