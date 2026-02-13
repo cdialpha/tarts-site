@@ -9,8 +9,9 @@
     "/.assetsignore",
     "/favicon.svg",
     "/about",
+    "/blog",
+    "/blogs/*",
     "/donate",
-    "/fr/*",
     "/projects/*",
     "/resources"
   ]
