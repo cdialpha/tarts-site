@@ -18,8 +18,27 @@
     font-family: var(--font-ojuju);
 }  
 
-/* Base cloud layer */
+.body-section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 1rem;   /* optional but recommended */
+  padding-right: 1rem;  /* prevents edge collision */
+}
+/* md ≥ 768px */
+@media (min-width: 768px) {
+  .body-section {
+    max-width: 42rem; /* 672px */
+  }
+}
+/* xl ≥ 1280px */
+@media (min-width: 1280px) {
+  .body-section {
+    max-width: 72rem; /* 1152px */
+  }
+}
 
+/* Base cloud layer */
 .cloud-layer {
   position: absolute;
   left: 0;
@@ -46,16 +65,11 @@
   height: 20vh;
   flex-shrink: 0;
 }
-
 @keyframes cloud-loop {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-
-
 /* Speeds (parallax-ready) */
 .cloud-slow   { animation-duration: 140s; }
 .cloud-medium { animation-duration: 100s; }
 .cloud-fast   { animation-duration: 70s; }
-
-

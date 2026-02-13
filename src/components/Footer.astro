@@ -1,21 +1,74 @@
+---
+import { Image } from "astro:assets"
+import fb from "../assets/icons/fb.svg"
+import ig from "../assets/icons/ig.svg"
+import li from "../assets/icons/linkedin.png"
+import email from "../assets/icons/email.png"
+import whatsapp from "../assets/icons/whatsapp.png"
+import map from "../assets/icons/map.png"
+import barn from "../assets/icons/barn.png"
+import mailbox from "../assets/icons/mailbox.png"
+import pitaya from "../assets/pitaya-border.png"
+import padk from "../assets/icons/padk_logo.png"
+import tarts from "../assets/icons/tarts-logo-full.png"
+import subsoil from "../assets/subsoil-2.png"
+---
   <!-- FOOTER -->
-  <footer class="border-t">
-    <div class="max-w-6xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6">
-      <div>
-        <div class="text-lg font-semibold">PADK</div>
-        <div class="text-sm text-gray-600 mt-2">PADK is a fiscally sponsored project of the Center for Social Change, a 501(c)3 nonprofit organization</div>
+   <!-- TODO: Potentially ADD SITE MAP-->
+  <footer id="footer" class="bg-g3 text-b1 relative">
+  <!-- <Image src={pitaya} alt="pitaya border before footer" class="md:hidden absolute z-10 -top-30" />  -->
+     <div class="relative z-1 bg-[url('../assets/subsoil-2.png')] bg-cover bg-center bg-no-repeat mx-auto">
+      <div class="pb-10 pt-40 md:pt-20 xl:pt-10 md:max-w-4xl mx-auto">
+      <div class="flex mt-4"> 
+        <Image src={padk} alt="PADK Logo" class="hidden md:inline h-20 w-25 pr-4"/>
+        <Image src={tarts} alt="TARTS Logo" class="hidden md:inline h-20 w-40"/> 
+      <p class="py-4 md:pl-4">Tropical Agriculture Research & Training Station (TARTS) is an entity of the non-profit organization known as Powerful Action for the Kadey Department (PADK). PADK is a fiscally sponsored project of the Center for Social Change, a 501(c)3 nonprofit organization.<p>
       </div>
-
-      <div class="md:col-span-1">
-        <div class="text-sm font-semibold mb-2">Contact</div>
-        <div class="text-sm text-gray-600">Primary office: Ngotto — Batouri and Ngotto, East Cameroon; Douala, Littoral Region</div>
-      </div>
-
-      <div class="flex flex-col items-start gap-3">
-        <div class="text-sm font-semibold">Follow</div>
-        <div class="flex gap-3">
-          <a href="https://www.facebook.com" aria-label="Facebook" class="text-sm hover:underline">Facebook</a>
-          <a href="https://www.instagram.com" aria-label="Instagram" class="text-sm hover:underline">Instagram</a>
+      <div class="flex md:grid md:grid-col-3 md:grid-flow-col">
+         <div class="md:flex-col">
+          <div class="font-extrabold py-4 text-lg">Contact Us:</div>
+            <div class="flex gap-4 py-2">
+              <Image src={email} alt="fb icon" class="w-6 h-6"/> 
+              <p class="font-bold">info@padk.org</p>
+            </div>
+            <a href="https://wa.me/237686084357" class="block flex gap-4 py-2">
+              <Image src={whatsapp} alt="whatsapp icon" class="w-6 h-6"/> 
+              <p class="font-bold"> (+237) 686 084 357</p>
+            </a>
+            <div class="flex gap-4 py-2">
+              <Image src={barn} alt="fb icon" class="w-6 h-6"/>
+              <div class="flex flex-col align-center"> 
+                <p class="font-bold">Ngotto (52 km SE of Batouri) </p> 
+                <p class="font-bold">Kadey, East Region, Cameroon</p>
+              </div>
+            </div>
+            <div class="flex gap-4 py-2">
+            <Image src={mailbox} alt="li icon" class="w-6 h-6"/> 
+            <p class="font-bold">BP: 15414 Douala </p>
+            </div>
+          </div>
+        <div class="flex-col justify-left md:w-auto ml-10 md:ml-0">
+          <div class="font-extrabold py-4 text-lg">Connect:</div>
+            <a href="https://www.facebook.com/padkcmr" class="flex gap-4 py-2">
+              <Image src={fb} alt="fb icon" class="w-10 h-10 md:w-6 md:h-6 mx-auto md:mx-0"/> 
+              <p class="font-bold hidden md:inline">PADK cmr</p>
+            </a>
+            <a href="https://www.facebook.com/padkcmr" class="flex gap-4 py-2">
+            <Image src={ig} alt="ig icon" class="w-10 h-10 md:w-6 md:h-6 mx-auto md:mx-0"/> 
+            <p class="font-bold hidden md:inline">@PADK_cmr</p>
+            </a>
+            <a href="https://www.linkedin.com/company/77683480" class="flex gap-4 py-2">
+            <Image src={li} alt="li icon" class="w-10 h-10 md:w-6 md:h-6 mx-auto md:mx-0"/> 
+            <p class="font-bold hidden md:inline">PADK</p>
+            </a>
+          </div>
+          <div class="flex flex-col hidden md:inline max-w-100 mx-4">
+            <div class="font-extrabold py-4 text-lg">Donate:</div>
+            <p>Most of our work is reliant on the generosity of our friends, small businesses, and philanthropic organizations. We are extremely grateful to those who make our work possible. If you have the means, please consider making a donation.</p>
+             <a class="mt-4 p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2" href="/donate"> 💚 Donate </a>
+          </div>
+        </div>
+        <div>
         </div>
       </div>
     </div>

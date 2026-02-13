@@ -2,53 +2,47 @@
 import "../styles/global.css";
 // Components 
 import LanguageToggle from "./LanguageToggle.astro";
-import tarts from "../assets/tarts-logo-only.png"
+import tarts from "../assets/icons/tarts-logo-only.png"
 import {Image} from "astro:assets";
-const currentLang = Astro.url.pathname.startsWith("/fr") ? "fr" : "en";
 
 const navLinks = {
   en: [
     { href: "/", label: "TARTS" },
     { href: "/about", label: "ABOUT" },
-    { href: "/resources", label: "RESOURCES" },
+    { href: "/blog", label: "BLOG"},
+    // { href: "/resources", label: "RESOURCES" },
     { href: "/donate", label: "DONATE"},
-    {
-      href: "/projects",
-      label: "PROJECTS",
-      subLinks: [
+    { href: "/projects", label: "PROJECTS", subLinks: [
         { href: "/projects", label: "All Projects" },
         { href: "/projects/soil", label: "Improving Soil Fertility" },
         { href: "/projects/animals", label: "Animal Husbandry" },
         { href: "/projects/foodsystems", label: "Food Systems" },
         { href: "/projects/community", label: "Community Projects" },
-      ],
-    },
+      ], 
+    }, 
   ],
   fr: [
     { href: "/fr", label: "TARTS" },
     { href: "/fr/about", label: "A PROPOS" },
-    { href: "/fr/resources", label: "RESSOURCES" },
-    { href: "/donate", label: "DONATE" }, 
-    {
-      href: "/fr/projects",
-      label: "PROJETS",
-      subLinks: [
+    { href: "/fr/blog", label: "BLOG"},
+    // { href: "/fr/resources", label: "RESSOURCES" },
+    { href: "/fr/donate", label: "DONATE" }, 
+    { href: "/fr/projects", label: "PROJETS", subLinks: [
         { href: "/fr/projects", label: "Tous les projets" },
         { href: "/fr/projects/soil", label: "Soil" },
         { href: "/fr/projects/animals", label: "Animals" },
-        { href: "/projects/foodsystems", label: "Food Systems" },
-        { href: "/projects/community", label: "Community Projects" },
+        { href: "/fr/projects/foodsystems", label: "Food Systems" },
+        { href: "/fr/projects/community", label: "Community Projects" },
       ],
     },
   ],
 };
 
+const currentLang = Astro.url.pathname.startsWith("/fr") ? "fr" : "en";
+
 // Stlyling for active vs inactive links
-
-const normalize = (path: string) =>
-  path.replace(/\/$/, "") || "/";
+const normalize = (path: string) => path.replace(/\/$/, "") || "/";
 const pathname = normalize(Astro.url.pathname);
-
 const isActive = (href: string) => {
 const target = normalize(href);
 return pathname === target;
@@ -65,7 +59,10 @@ const isSubActive = (href: string) => {
 const ACTIVE = "font-extrabold text-white underline underline-offset-4";
 const INACTIVE = "text-white/70 hover:text-white hover:underline";
 // TODO  : Fix French Donation Button on mobile 
+// BUG FIX : If French, and you try to select english, it will redirect to French; probably in /lib/initLangToggle 
 ---
+
+<!-- -->
 <script>
 const currentPath = window.location.pathname
 const currentLang = currentPath.startsWith("/fr") ? "fr" : "en";
@@ -73,8 +70,8 @@ const home = document.getElementById("home") as HTMLAnchorElement | null;
 if (home) home.href = currentLang === "en" ? "/" : "/fr";
 const about = document.getElementById("about") as HTMLAnchorElement | null;
 if (about) about.href = currentLang === "en" ? "/about" : "/fr/about";
-const resources = document.getElementById("resources") as HTMLAnchorElement | null;
-if (resources) resources.href = currentLang === "en" ? "/resources" : "/fr/resources";
+const blog = document.getElementById("blog") as HTMLAnchorElement | null;
+if (blog) blog.href = currentLang === "en" ? "/blog" : "/fr/blog";
 const projects = document.getElementById("projects") as HTMLAnchorElement | null;
 if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects";
 </script>
@@ -90,13 +87,13 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
       <nav class="hidden md:flex gap-6 text-sm items-center">   
         {currentLang === "en" ? (
           <>
-            <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="/donate"> 💚 Donate </a> </div>
+            <a class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2" href="/donate"> 💚 Donate </a>
             <a id="about" class={isActive(navLinks.en[1].href) ? ACTIVE : INACTIVE} href={navLinks.en[1].href}>{navLinks.en[1].label}</a>
-            <a id="resources" class={isActive(navLinks.en[2].href) ? ACTIVE : INACTIVE} href={navLinks.en[2].href}>{navLinks.en[2].label}</a>
+            <a id="blog" class={isActive(navLinks.en[2].href) ? ACTIVE : INACTIVE} href={navLinks.en[2].href}>{navLinks.en[2].label}</a>
       <div class="relative group inline-block z-50">
         <a id="projects"
-           class={`${isActive(navLinks.en[3].href) ? ACTIVE : INACTIVE} flex items-center px-2 py-1`}
-           href={navLinks.en[3].href}>
+           class={`${isActive(navLinks.en[4].href) ? ACTIVE : INACTIVE} flex items-center px-2 py-1`}
+           href={navLinks.en[4].href}>
           PROJECTS
           <svg class="ml-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 111.14.976l-4 4.69a.75.75 0 01-1.14 0l-4-4.69a.75.75 0 01.02-1.06z"/></svg>
         </a>
@@ -112,13 +109,13 @@ if (projects) projects.href = currentLang === "en" ? "/projects" : "/fr/projects
         ) : (
           <>
           <div class="p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2"><a href="/donate"> 💚 Faire un Don </a> </div>
-                <a id="about" class={isActive(navLinks.fr[1].href) ? ACTIVE : INACTIVE} href={navLinks.fr[1].href}>{navLinks.fr[1].label}</a>
-            <a id="resources" class={isActive(navLinks.fr[2].href) ? ACTIVE : INACTIVE} href={navLinks.fr[2].href}>{navLinks.fr[2].label}</a>
+            <a id="about" class={isActive(navLinks.fr[1].href) ? ACTIVE : INACTIVE} href={navLinks.fr[1].href}>{navLinks.fr[1].label}</a>
+            <a id="blogs" class={isActive(navLinks.fr[2].href) ? ACTIVE : INACTIVE} href={navLinks.fr[2].href}>{navLinks.fr[2].label}</a>
             <div class="relative group inline-block z-50">
         <a id="projects"
-           class={`${isActive(navLinks.en[3].href) ? ACTIVE : INACTIVE} flex items-center px-2 py-1`}
-           href={navLinks.en[4].href}>
-          {navLinks.en[4].label}
+           class={`${isActive(navLinks.en[5].href) ? ACTIVE : INACTIVE} flex items-center px-2 py-1`}
+           href={navLinks.en[5].href}>
+          {navLinks.en[5].label}
           <svg class="ml-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
             <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 111.14.976l-4 4.69a.75.75 0 01-1.14 0l-4-4.69a.75.75 0 01.02-1.06z"/>
           </svg>
