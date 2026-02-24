@@ -4,19 +4,39 @@
     --color-g3: #6a725e;
     --color-g2: #9fa88a;
     --color-g1: #e9edc9;
+    --color-g4: #45681d;
     --color-b1: #fefae0;
     --color-b2: #8B4513;
     --color-b3: #EBB295;
+    --color-b4: #d28158;
+    --color-b5: #fcccab;
     --color-h1: #007a5e;
     --color-h2: #6a725e;     
     --color-h3: #283618;
     --color-txt1: #101010;
     --color-txt2: #1C2D14;
     --color-btn: #007a5e;
+    --color-tag1: #0F766E;
+    --color-tag2: #166534;
+    --color-tag3: #991B1B;
+    --color-tag4: #5B21B6;
+    --color-tag5: #1E3A8A;   
+}
+
+.formkit-form {
+  margin-top: 0 !important;
+}
+
+.formkit-form[data-format="inline"] {
+  margin: 0 !important;
 }
 .ojuju {
     font-family: var(--font-ojuju);
 }  
+
+html, body {
+  overflow-x: hidden;
+}
 
 .body-section {
   margin-left: auto;

@@ -5,9 +5,21 @@ import Layout from "../layouts/Layout.astro"
 import Image from "astro/components/Image.astro";
 // Images 
 import blogHero from "../assets/blog-hero.jpeg"
-import worm from "../assets/icons/worm.png"
-import planting from "../assets/icons/planting.png"
-import rabbitHero from "../assets/rabbit-hero.jpeg"
+
+// import BlogCard from "../components/BlogCard.astro";
+import BlogCard from "../components/BlogCard.astro";
+// import {content} from "../data/content";
+import { posts } from "../data/content.ts";
+
+const isDev = import.meta.env.DEV;
+
+// Show draft posts only in development
+const visiblePosts = posts.filter((p) => isDev || !p.draft);
+
+// Newest first
+const sorted = [...visiblePosts].sort(
+  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+);
 ---
 <Layout title="Blog">
   <!-- HERO --> 
@@ -21,71 +33,84 @@ import rabbitHero from "../assets/rabbit-hero.jpeg"
     <!--Glassmorphic Overlay-->
     <div class="relative z-20 h-full flex items-center px-6 md:max-w-4xl md:mx-auto">
        <div class="absolute bg-g3/60 backdrop-blur-xs border-4 p-4 border-black/30 shadow-lg left-0 my-auto mx-8 rounded-xl">
-        <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white ojuju"> Blog & Newsletters </h1>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white ojuju"> Field Notes & Newsletters </h1>
         <h2 class="text-xl font-bold leading-tight text-g1 oju"> Catch up on our progress & dig deeper on concepts </h2> 
     </div>
   </div>
   </section>
   
-  <!-- Blogs Overview -->
-  <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
+  <!-- NEWSLETTER -->
+  <section id="section-1" class="bg-g3 px-6 py-6 md:py-12 mb-0 text-b1">
     <div class="max-w-4xl mx-auto"> 
-      <h2 class="text-2xl font-bold"></h2>
+      <h2 class="text-2xl font-bold">TARTS Newsletter</h2>
       <div class="flex flex-col mt-2">
-         <p class="my-2"> Like permaculture & regenerative agriculture, the components that create a healthy community are interwoven and highly connected.  Our mission is dependent on the success and livelihood of the community within the Kady Department, and therefore we invest in projects that span the areas of agriculture, health, education, youth development, conservation, etc.  </p>
-        <p class="my-2"> The majority of our projects take place at the TARTS facility in Ngotto. To learn more specifically about what TARTS is and it’s day to day operations, follow the link below.
-</p>
-<p>
-  This page will highlight both the community work we do and our core projects that directly support our mission of promoting regenerative agriculture.
-</p>
-    
-      <!-- LINKS -->
-      <div class="my-4 ml-4 text-md font-bold grid grid-cols-[auto_1fr] grid-rows-2 gap-2 items-center">
-        <p class="items-center"> Hear our story: </p> 
-  
-        <a href="/about" class="flex items-center p-1 w-34 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
-        <Image src={planting} alt="worm" class="h-6 w-6"/>
-        <p class="px-2"> About Us </p>
-      </a>
-      
-        <p class=""> Learn about soil health: </p> 
-  
-        <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
-        <Image src={worm} alt="worm" class="h-6 w-6"/>
-        <p class="px-2"> Soil Food Web </p>
-      </a>
+        <p class="my-2"> Like permaculture & regenerative agriculture, the components that create a healthy community are interwoven and highly connected.  Our mission is dependent on the success and livelihood of the community within the Kady Department, and therefore we invest in projects that span the areas of agriculture, health, education, youth development, conservation, etc.</p>
+        <p class="my-2"> Our newsletters and blog posts are where strategy meets soil. As a regenerative agriculture NGO, our work spans on-the-ground implementation, farmer partnerships, research translation, and systems change. This page brings those threads together in one place: regular updates from the field, practical lessons learned, and deeper reflections on what it takes to restore land and strengthen rural communities.</p>     
+        <div class="my-4">Help us grow 💚. Add your email to recieve updates from our newsletter. By subscribing you'll get:</p> 
+          <ul class="list-disc my-2 ml-5 md:ml-10">
+            <li> No spam! High quality content & updates.</li>
+            <li> Unlock 20+ Free PDF Guides </li>
+            <li> Unsubscribe at any time </li>    
+          </ul>
+        </div>
       </div>
+      <script async data-uid="fa24dcd7f9" src="https://tarts.kit.com/fa24dcd7f9/index.js"></script>
+     </div>
+    </section>
 
-  </div>
-    </div>
-  </section>
-
- <!-- Projects Overview -->
-  <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
+ <!-- Blog -->
+  <section id="section-1" class="bg-g3 px-6 mb-0 text-b1">
     <div class="max-w-4xl mx-auto"> 
-      <h2 class="text-2xl font-bold">Animals & Soil: An Overview </h2>
+      <h2 class="text-2xl font-bold">Our Blog</h2>
+      <p class="my-2">This page will highlight both the community work we do and our core projects that directly support our mission of promoting regenerative agriculture.</p>
+
+        <!-- Rendered Blog Cards  -->
+        <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+        {sorted.length === 0 ? (
+              <p class="empty-state">No posts yet. Check back soon!</p>
+            ) : (
+              <>
+                {sorted.map((post) => (
+                  <div>
+                    <BlogCard {...post} />
+                  </div>
+                ))}
+              </>
+            )}
+        </div>
+<div class="flex flex-col mt-2">
+        <ul class="list-disc ml-5 md:ml-10">         
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag1 font-bold text-b1 border-2 border-h3 px-2 inline">Field Reports</div>
+            <p class="px-2 inline">Seasonal updates from project sites, including soil health indicators, crop performance, water retention outcomes, and farmer feedback. We share what’s working, what isn’t, and how we adapt.</p>
+          </li>
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag2 font-bold text-b1 border-2 border-h3 px-2 inline">Farmer & Partner Spotlights</div>
+            <p class="px-2 inline">Stories from growers, agronomists, and local leaders advancing regenerative practices—cover cropping, rotational grazing, compost systems, agroforestry, and reduced tillage.</p>
+          </li>
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag3 font-bold text-b1 border-2 border-h3 px-2 inline">Data & Insights </div>
+            <p class="px-2 inline"> Clear breakdowns of monitoring results, pilot program outcomes, and research partnerships. We translate technical findings into actionable insights for practitioners and supporters.</p>
+          </li>
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag4 font-bold text-b1 border-2 border-h3 px-2 inline">Policy & Systems Updates</div>
+            <p class="px-2 inline">
+            Analysis of emerging funding mechanisms, carbon markets, conservation incentives, and regional food system developments that impact regenerative adoption.</p>
+            </li>
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag5 font-bold text-b1 border-2 border-h3 px-2 inline">Organizational Updates </div>
+            <p class="px-2 inline">Milestones, new partnerships, grant announcements, and opportunities to engage—whether through volunteering, collaboration, or direct support.</p>
+          </li> 
+        </ul>
+        </div>
+
+      </section>
+
+ <section id="section-1" class="bg-g3 px-6 py-6 md:py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+      <h2 class="text-2xl font-bold">Third Section</h2>
       <div class="flex flex-col mt-2">
-        <p  class="my-2"> In the forests and savannas of East Cameroon, soil isn't just dirt—it's a living ecosystem where animals play an irreplaceable role. From the earthworms tunneling through the ground to the livestock grazing above it, animals are nature's master engineers, constantly rebuilding and enriching the soil beneath our feet. In regenerative agriculture, we don't just grow crops; we cultivate entire ecosystems where animals and soil work together to create abundance.</p> 
-        <p  class="my-2">Every creature contributes to soil health in its own way. Earthworms digest organic matter and excrete nutrient-rich castings while creating channels that allow air and water to penetrate deep into the earth. Insects break down plant material, making nutrients available to microorganisms. Even larger animals like chickens, goats, and cattle deposit manure that feeds billions of soil microbes, while their hooves gently aerate compacted ground. This intricate dance between animals and soil creates a self-sustaining cycle: healthy soil supports diverse animal life, and animals in turn regenerate the soil.</p>
-        <p class="my-2">
-          A regenerativist approach seeks to optimize production by leveraging natural processes and maintaining ecosystem health.
-        </p>
-
-      <h2 class="text-2xl font-bold my-4">Mob Grazing</h2>
-        <p class="my-2">Grazing management practices such as planned grazing and paddocking can improve soil health in several ways. Firstly, they promote even distribution of grazing pressure across the pasture, preventing overgrazing in certain areas and allowing for uniform plant growth and root development.</p>      
-        <p class="my-2">Secondly, rotational grazing systems provide periods of rest for pastures, allowing for plant regrowth and root system recovery, which enhances soil stability and organic matter accumulation.</p>  
-        <p class="my-2">Thirdly, grazing animals, through their trampling and manure deposition, contribute to nutrient cycling and organic matter incorporation into the soil, improving soil fertility. Lastly, the physical action of animal hooves on the soil surface can help break up compacted soil layers, improving soil structure and water infiltration.</p> 
-        
-     <h2 class="text-2xl font-bold my-4">Family Rabbit Project</h2>
-        <p class="my-2">Through our Family Rabbit Project and other initiatives, we demonstrate how small-scale animal husbandry can rebuild soil while providing protein and income for rural families.</p> 
-        <p class="my-2"></p> 
-        <p class="my-2"></p> 
-        
- <Image src={rabbitHero} alt="man with rabbits" /> 
-
-    <h2 class="text-2xl font-bold my-4">Third Section Etc.</h2>
-        <p class="my-2">Our projects demonstrate this symbiotic relationship in action. Through vermiculture, we harness the power of earthworms to transform organic waste into black gold—nutrient-dense compost that brings depleted soils back to life. Our hügelkultur beds incorporate woody debris that slowly breaks down, creating habitat for beneficial organisms while retaining moisture. </p> 
-        <p class="my-2">When we integrate animals thoughtfully into our agricultural systems—whether through managed grazing, composting, or cultivating beneficial insects—we're not just improving yields. We're restoring the living fabric of our land, building resilience against drought and erosion, and creating farms that can sustain our communities for generations to come</p> 
-        <p class="my-2"></p> 
+        <p class="my-2"> Like permaculture & regenerative agriculture, the components that create a healthy community are interwoven and highly connected.  Our mission is dependent on the success and livelihood of the community within the Kady Department, and therefore we invest in projects that span the areas of agriculture, health, education, youth development, conservation, etc.</p>
   </section>
+
 </Layout>

@@ -15,15 +15,17 @@ import subsoil from "../assets/subsoil-2.png"
 ---
   <!-- FOOTER -->
    <!-- TODO: Potentially ADD SITE MAP-->
-  <footer id="footer" class="bg-g3 text-b1 relative">
+  <footer id="footer" class="text-b1 relative">
   <!-- <Image src={pitaya} alt="pitaya border before footer" class="md:hidden absolute z-10 -top-30" />  -->
      <div class="relative z-1 bg-[url('../assets/subsoil-2.png')] bg-cover bg-center bg-no-repeat mx-auto">
-      <div class="pb-10 pt-40 md:pt-20 xl:pt-10 md:max-w-4xl mx-auto">
-      <div class="flex mt-4"> 
+      <div class="pb-10 pt-40 mx-4 md:pt-20 xl:pt-10 md:max-w-4xl md:mx-auto">
+      <div class="flex mt-4 border-b-4  border-b4 my-2"> 
         <Image src={padk} alt="PADK Logo" class="hidden md:inline h-20 w-25 pr-4"/>
         <Image src={tarts} alt="TARTS Logo" class="hidden md:inline h-20 w-40"/> 
-      <p class="py-4 md:pl-4">Tropical Agriculture Research & Training Station (TARTS) is an entity of the non-profit organization known as Powerful Action for the Kadey Department (PADK). PADK is a fiscally sponsored project of the Center for Social Change, a 501(c)3 nonprofit organization.<p>
-      </div>
+      <div class="py-4 md:pl-4"><p class="justify-center md:justify-left inline font-extrabold text-b4">Tropical Agriculture Research & Training Station (TARTS) 
+        <p class="inline">is an entity of the non-profit organization known as Powerful Action for the Kadey Department (PADK). PADK is a fiscally sponsored project of the Center for Social Change, a 501(c)3 nonprofit organization.<p>
+      </p></div></div>
+
       <div class="flex md:grid md:grid-col-3 md:grid-flow-col">
          <div class="md:flex-col">
           <div class="font-extrabold py-4 text-lg">Contact Us:</div>
@@ -63,9 +65,8 @@ import subsoil from "../assets/subsoil-2.png"
             </a>
           </div>
           <div class="flex flex-col hidden md:inline max-w-100 mx-4">
-            <div class="font-extrabold py-4 text-lg">Donate:</div>
-            <p>Most of our work is reliant on the generosity of our friends, small businesses, and philanthropic organizations. We are extremely grateful to those who make our work possible. If you have the means, please consider making a donation.</p>
-             <a class="mt-4 p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2" href="/donate"> 💚 Donate </a>
+            <a class="mt-4 p-2 rounded-xl bg-g1 font-bold inline-block text-black border-2" href="/donate"> 💚 Donate </a> <p>Most of our work is reliant on the generosity of our friends, small businesses, and philanthropic organizations. We are extremely grateful to those who make our work possible. If you have the means, please consider making a donation.</p>
+             
           </div>
         </div>
         <div>

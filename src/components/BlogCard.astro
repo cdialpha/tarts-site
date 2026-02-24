@@ -1,0 +1,161 @@
+---
+/**
+ * Usage: <BlogCard {...post} />
+ * IMPORTANT — Tailwind purge safety:
+ * Tag color classes are defined as complete strings in TAG_STYLES below.
+ * Never build them dynamically (e.g. `bg-tag${n}`) — Tailwind will purge them.
+ * Add new tags to TAG_STYLES and your tailwind.config to extend coverage.
+ */
+
+import { Image } from "astro:assets";
+import type { ContentItem } from "../data/content";
+
+type Props = ContentItem;
+const {
+  type,
+  title,
+  description,
+  publishedAt,
+  updatedAt,
+  author,
+  tags,
+  readingTime,
+  featuredImage,
+  slug,
+  draft,
+} = Astro.props;
+
+// ── Tag → Tailwind class mapping ──────────────────────────────────────────────
+// Full class strings only — no interpolation — so Tailwind's scanner keeps them.
+const TAG_STYLES: Record<string, string> = {
+  // Tag1 - Warm Fuzzies - Teal  (#0F766E)
+  "youth":             "bg-tag1 text-white border-tag1",
+  "impact":            "bg-tag1 text-white border-tag1",
+  "opportunity":       "bg-tag1 text-white border-tag1",
+  // Tag 2 - ENVIRONMENT - GREEN (#166534)
+  "ecology":           "bg-tag2 text-white border-tag2",
+  "soilfoodweb":       "bg-tag2 text-white border-tag2",
+  "microbiology":      "bg-tag2 text-white border-tag2",
+  "conservation":      "bg-tag2 text-white border-tag2",
+  // Tag 3 - BAD! - RED   (#991B1B)
+  "trad ag":           "bg-tag3 text-white border-tag3",
+  "pesticides":        "bg-tag3 text-white border-tag3",
+  "food systems":      "bg-tag3 text-white border-tag3",
+  // tag4 — PURPLE - Market (#5B21B6)
+  "market":            "bg-tag4 text-white border-tag4",
+  "productivity":      "bg-tag4 text-white border-tag4",
+  "income":            "bg-tag4 text-white border-tag4",
+  // Tag 5 - Site - Navy  (#1E3A8A)
+  "tarts":             "bg-tag5 text-white border-tag5",
+  "farm":              "bg-tag5 text-white border-tag5",
+  "spotlight":         "bg-tag5 text-white border-tag5",
+  "cameroon":          "bg-tag5 text-white border-tag5",
+};
+const FALLBACK_STYLE = "bg-neutral-700 text-white border-neutral-600";
+function tagClass(tag: string): string {
+  return TAG_STYLES[tag.toLowerCase()] ?? FALLBACK_STYLE;
+}
+// ── Date formatting ───────────────────────────────────────────────────────────
+const activeDate = updatedAt ?? publishedAt;
+const formattedDate = new Date(activeDate).toLocaleDateString("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
+const visibleTags = tags.slice(0, 3);
+// ── Type badge ────────────────────────────────────────────────────────────────
+const typeBadgeClass =
+  type === "newsletter"
+    ? "bg-amber-500/15 text-amber-400 border-amber-500/30"
+    : "bg-sky-500/15 text-sky-400 border-sky-500/30";
+// extra styles to disposition : opacity-50 pointer-events-none
+---
+<article class="group relative flex flex-col md:max-w-80 h-100 bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden transition-all duration-300 ease-out hover:border-neutral-600 hover:shadow-2xl hover:shadow-black/40 hover:-translate-y-0.5">
+  <a href={`/blog/${slug}`} class="block relative overflow-hidden" aria-hidden="true">
+    <div class="relative aspect-[16/8] overflow-hidden bg-neutral-800">
+      <Image
+        src={featuredImage}
+        alt={title}
+        width={300}
+        height={200}
+        class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+        loading="lazy"
+        decoding="async"
+      />
+      <!-- Gradient scrim -->
+      <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/70 via-transparent to-transparent"></div>
+
+      <!-- Type badge — bottom-left of image -->
+      <span class="absolute bottom-2.5 left-3 px-2 py-0.5 rounded-md text-[0.65rem] font-bold uppercase tracking-widest border typeBadgeClass" />
+      <!-- {type === "newsletter" ? "Newsletter" : "Article"} -->
+      </span>
+    </div>
+  </a>
+
+  <!-- ── Card body ─────────────────────────────────────────────────────────── -->
+  <div class="flex flex-col gap-2.5 p-4 flex-1">
+
+    <!-- Meta row -->
+    <div class="flex items-center gap-2 text-[0.72rem] text-neutral-500 font-medium">
+      <time datetime={activeDate}>{formattedDate}</time>
+      <span aria-hidden="true" class="text-neutral-700">·</span>
+      <span>{readingTime}</span>
+    </div>
+
+    <!-- Title -->
+    <h2 class="text-[0.97rem] font-bold leading-snug tracking-tight text-neutral-100 line-clamp-2">
+      <a
+        href={`/blog/${slug}`}
+        class="hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:rounded"
+      >
+        {title}
+      </a>
+    </h2>
+
+    <!-- Description -->
+    <p class="text-[0.8rem] leading-relaxed text-neutral-400 line-clamp-2 flex-1">
+      {description}
+    </p>
+
+    <!-- Tags -->
+    <ul class="flex flex-wrap gap-1.5 list-none p-0 m-0" aria-label="Tags">
+      {visibleTags.map((tag) => (
+        <li>
+          <span class:list={[
+            "inline-block px-2 py-0.5 rounded-lg text-[0.68rem] font-bold border",
+            tagClass(tag),
+          ]}>
+            {tag}
+          </span>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Divider -->
+    <hr class="border-neutral-800 my-0.5" />
+
+    <!-- Author + Read link -->
+    <div class="flex items-center gap-2">
+      <Image
+        src={author.avatar}
+        alt={author.name}
+        width="24"
+        height="24"
+        class="w-6 h-6 rounded-full object-cover bg-neutral-700 ring-1 ring-neutral-700"
+        loading="lazy"
+      />
+      <span class="text-[0.75rem] font-semibold text-neutral-400">{author.name}</span>
+      <a
+        href={`/blog/${slug}`}
+        class="ml-auto text-[0.72rem] font-semibold text-neutral-500 hover:text-neutral-200 transition-colors duration-150 flex items-center gap-1"
+        aria-label={`Read ${title}`}
+      >
+        Read
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</article>
