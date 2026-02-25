@@ -26,6 +26,12 @@ import book from "../assets/icons/book.png";
 import dragonfruit from "../assets/dragonfruit.jpeg";
 import womensGroup from "../assets/womens-group.jpeg";
 import teamReading from "../assets/team-reading.jpeg";
+// Goals Images 
+import goals_pangolin from "../assets/goals_pangolin.png"
+import goals_market from "../assets/goals_market.png"
+import goals_teaching from "../assets/goals_teaching.png"
+import goals_research from "../assets/goals_research.png"
+
 //Sponsor Logos
 import A2E from "../assets/sponsors/A2E.png"
 import MCT from "../assets/sponsors/MCT.png"
@@ -102,7 +108,7 @@ const looped = [...sponsors, ...sponsors];
     <div class="flex flex-col gap-4 max-w-100 md:w-1/2">
       <h2 class="font-extrabold text-2xl">Our Mission</h2>
        <p class="text-md leading-relaxed">
-        We provide smallholder farmers in Cameroon the knowledge, tools, & means to adopt evidence based regenerative agriculture techniques to transform degraded soil microbiology and existing agricultural systems. We provide training, research facilities, and experimental fields to accelerate knowledge transfer, build capacity, & provide crucial hands-on experience. 
+       TARTS mobilizes regenerative agriculture as a catalyst for ecological restoration, economic opportunity, and food sovereignty. We integrate rigorous field research, soil biology insights, agroecological design, and hands-on training to equip farmers, students, and community partners with the knowledge, tools, and networks to revitalize their lands, diversify livelihoods, and steward their ecosystems for future generations. We are rooted in place — responding to the specific challenges of Cameroon’s East Region — while contributing scalable solutions for tropical agriculture globally.. 
       </p>
     </div>  
     <div class="max-w-100 md:w-1/2 flex justify-center rounded-full overflow-hidden">
@@ -116,7 +122,7 @@ const looped = [...sponsors, ...sponsors];
     <div class="flex flex-col gap-4 max-w-100 md:w-1/2">
       <h2 class="font-extrabold text-2xl">Our Vision</h2>
        <p class="text-md leading-relaxed">
-       	Thriving rural communities in Cameroon where regenerative agriculture restores ecosystems, strengthens local economies, and enables smallholder farmers to prosper with dignity.
+       We envision a future where degraded soils are alive with biodiversity, where rural communities lead their own agricultural transformation, and where regenerative science and farmer wisdom converge to create resilient food systems across Cameroon and beyond. Through equitable partnerships, inclusive training, and locally grounded research, TARTS aims to be a regional hub of innovation — inspiring sustainable livelihoods, climate-adaptive landscapes, and economic dignity for smallholder farmers.
       </p>
     </div>  
     <div class="max-w-100 md:w-1/2 flex justify-center rounded-full overflow-hidden">
@@ -128,45 +134,46 @@ const looped = [...sponsors, ...sponsors];
     </div>
   </div>
 </div>
+<!-- GOALS -->
 <div class="max-w-4xl mx-auto ">
-      <h2 class="font-extrabold text-2xl">Our Goals</h2>
+      <h2 class="font-extrabold text-2xl text-center">Our Goals</h2>
 </div>
 <div class="max-w-6xl mx-auto space-y-6 px-4 sm:px-6 py-12">
     <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-      <div class="flex flex-col items-center gap-3 md:flex-col md:text-center">
-        <Image src={plant} alt="increasing plant yields" class="w-30 shrink-0" />
-        <p class="text-base break-words">
-          Build an intimate understanding of ecological relationships, Improve soil fertility, and create a resilient environment. 
-        </p>
+    <!-- GOAL 1 -->
+      <div class="flex flex-col items-center gap-3 md:flex-col md:text-center bg-g3/20 rounded-xl p-2">
+        <div class="text-base break-words">Build an intimate understanding of ecological relationships, Improve soil fertility, and create a resilient environment.</div>
+        <Image src={goals_pangolin} alt="increasing plant yields" class="shrink-0" />
+          <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
+            <Image src={worm} alt="worm" class="h-6 w-6"/>
+            <p class="px-2"> Soil Food Web </p>
+          </a>
+      </div>
+      <!-- GOAL 2 -->
+      <div class="flex flex-col items-center gap-3 md:flex-col md:text-center bg-g3/20 rounded-xl p-2">
+        <div class="text-base break-words">Growing biodiverse, disease-resistant foods to improve food security & improve local livelihoods by creating high value market opportunities.</div>
+        <Image src={goals_market} alt="improving resistance" class="shrink-0" />
         <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
           <Image src={worm} alt="worm" class="h-6 w-6"/>
-        <p class="px-2"> Soil Food Web </p>
-      </a>
+          <p class="px-2"> Food systems </p>
+        </a>
       </div>
-      <div class="flex flex-col items-center gap-3 md:flex-col md:text-center">
-        <Image src={protect} alt="improving resistance" class="w-30 shrink-0" />
-        <p class="text-base break-words px-2">
-          Growing biodiverse, disease-resistant foods to improve food security & improve local livelihoods by creating high value market opportunities.
-        </p>
-                <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
-          <Image src={worm} alt="worm" class="h-6 w-6"/>
-        <p class="px-2"> Food systems </p>
-      </a>
-      </div>
-      <div class="flex flex-col items-center gap-3 md:flex-col md:text-center">
-        <Image src={teach} alt="teaching farmers" class="w-30 shrink-0" />
+      <!-- GOAL 3 -->
+       <div class="flex flex-col items-center gap-3 md:flex-col md:text-center bg-g3/20 rounded-xl p-2">
         <p class="text-base break-words px-2">
           Promoting regenerative farming practices, Deliver high value trainings to disseminate innovative solutions & Create a center that inspires local small-holder farmers.
         </p>
-                <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
-          <Image src={worm} alt="worm" class="h-6 w-6"/>
+        <Image src={goals_teaching} alt="teaching farmers" class="shrink-0" />        
+        <a href="/about" class="flex bottom-0 items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
+          <Image src={plant} alt="worm" class="h-6 w-6"/>
         <p class="px-2"> Trainings</p>
       </a>
       </div>
-      <div class="flex flex-col items-center gap-3 md:flex-col md:text-center">
-        <Image src={book} alt="performing research in tropical contexts" class="w-30 shrink-0" />
+      <!-- GOAL 4 -->
+       <div class="flex flex-col items-center gap-3 md:flex-col md:text-center bg-g3/20 rounded-xl p-2">
         <p class="text-base break-words px-2"> Performing high quality research within the local context, build higher education capacity, and provide facilities for solving real problems.</p>
-          <a href="/about" class="flex items-center p-1 w-34 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
+        <Image src={goals_research} alt="performing research in tropical contexts" class="shrink-0" />
+        <a href="/about" class="flex items-center p-1 w-34 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
             <Image src={planting} alt="worm" class="h-6 w-6"/>
             <p class="px-2"> About Us </p>
           </a>
