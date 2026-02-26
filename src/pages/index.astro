@@ -5,13 +5,11 @@ import Layout from "../layouts/Layout.astro"
 import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
 import Newsletter from "../components/Newsletter.astro"
+import GoalCard from "../components/GoalCard.astro";
 // Hero Images
 import clouds from "../assets/clouds.avif";
 import farmNoSky from "../assets/farm-no-sky.png"; 
 import farm from "../assets/farm.jpeg";
-// Icons 
-import worm from "../assets/icons/worm.png"
-import planting from "../assets/icons/planting.png"
 //Page Images
 import compostSift from "../assets/compost-sift.jpg";
 import home1 from "../assets/home1.jpeg";
@@ -19,10 +17,6 @@ import home2 from "../assets/home2.jpeg";
 import lab from "../assets/lab.jpeg";
 import lib from "../assets/library.jpeg";
 import farm2 from "../assets/farm_2.jpeg";
-import plant from "../assets/icons/plant.png";
-import protect from "../assets/icons/protect.png";
-import teach from "../assets/icons/teach.png";
-import book from "../assets/icons/book.png";
 import dragonfruit from "../assets/dragonfruit.jpeg";
 import womensGroup from "../assets/womens-group.jpeg";
 import teamReading from "../assets/team-reading.jpeg";
@@ -31,7 +25,10 @@ import goals_pangolin from "../assets/goals_pangolin.png"
 import goals_market from "../assets/goals_market.png"
 import goals_teaching from "../assets/goals_teaching.png"
 import goals_research from "../assets/goals_research.png"
-
+import worm from "../assets/icons/worm.png"
+import bulb from "../assets/icons/bulb.png"
+import carrot from "../assets/icons/carrot.png"
+import flask from "../assets/icons/flask.png"
 //Sponsor Logos
 import A2E from "../assets/sponsors/A2E.png"
 import MCT from "../assets/sponsors/MCT.png"
@@ -134,58 +131,26 @@ const looped = [...sponsors, ...sponsors];
     </div>
   </div>
 </div>
+</section>
 <!-- GOALS -->
-<div class="max-w-4xl mx-auto ">
-      <h2 class="font-extrabold text-2xl text-center">Our Goals</h2>
+<section id="goals" class="bg-g1">
+  <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-extrabold text-2xl text-center">Our Areas of Intervention</h2>
 </div>
 <div class="max-w-6xl mx-auto space-y-6 px-4 sm:px-6 py-12">
-    <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-    <!-- GOAL 1 -->
-      <div class="flex flex-col items-center gap-3 md:flex-col md:text-center bg-g3/20 rounded-xl p-2">
-        <div class="text-base break-words">Build an intimate understanding of ecological relationships, Improve soil fertility, and create a resilient environment.</div>
-        <Image src={goals_pangolin} alt="increasing plant yields" class="shrink-0" />
-          <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
-            <Image src={worm} alt="worm" class="h-6 w-6"/>
-            <p class="px-2"> Soil Food Web </p>
-          </a>
-      </div>
-      <!-- GOAL 2 -->
-      <div class="flex flex-col items-center gap-3 md:flex-col md:text-center bg-g3/20 rounded-xl p-2">
-        <div class="text-base break-words">Growing biodiverse, disease-resistant foods to improve food security & improve local livelihoods by creating high value market opportunities.</div>
-        <Image src={goals_market} alt="improving resistance" class="shrink-0" />
-        <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
-          <Image src={worm} alt="worm" class="h-6 w-6"/>
-          <p class="px-2"> Food systems </p>
-        </a>
-      </div>
-      <!-- GOAL 3 -->
-       <div class="flex flex-col items-center gap-3 md:flex-col md:text-center bg-g3/20 rounded-xl p-2">
-        <p class="text-base break-words px-2">
-          Promoting regenerative farming practices, Deliver high value trainings to disseminate innovative solutions & Create a center that inspires local small-holder farmers.
-        </p>
-        <Image src={goals_teaching} alt="teaching farmers" class="shrink-0" />        
-        <a href="/about" class="flex bottom-0 items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
-          <Image src={plant} alt="worm" class="h-6 w-6"/>
-        <p class="px-2"> Trainings</p>
-      </a>
-      </div>
-      <!-- GOAL 4 -->
-       <div class="flex flex-col items-center gap-3 md:flex-col md:text-center bg-g3/20 rounded-xl p-2">
-        <p class="text-base break-words px-2"> Performing high quality research within the local context, build higher education capacity, and provide facilities for solving real problems.</p>
-        <Image src={goals_research} alt="performing research in tropical contexts" class="shrink-0" />
-        <a href="/about" class="flex items-center p-1 w-34 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
-            <Image src={planting} alt="worm" class="h-6 w-6"/>
-            <p class="px-2"> About Us </p>
-          </a>
-      </div>
-    
+    <div class="grid grid-cols-2 gap-2 md:gap-6 md:grid-cols-4">
+      <GoalCard number="1" goalTitle="Ecology" text="Building an intimate understanding of ecological relationships, Improving soil fertility, and creating a resilient environment." img={goals_pangolin} imgAlt="improving resistance" btnImg={worm} btnImgAlt="worm icon" btnTxt="Soil Food Web" btnHref="/projects"/> 
+      <GoalCard number="2" goalTitle="Market Planning" text="Growing biodiverse, disease-resistant foods to improve food security & improve local livelihoods by creating high value market opportunities." img={goals_market} imgAlt="teaching farmers" btnImg={carrot}  btnImgAlt="carrot icon" btnTxt="Food systems" btnHref="/projects"/>
+      <GoalCard number="3" goalTitle="Training" text="Promoting regenerative farming practices, Deliver high value trainings to disseminate innovative solutions & Create a center that inspires local small-holder farmers." img={goals_teaching} imgAlt="teaching farmers" btnImg={bulb} btnImgAlt="bulb icon" btnTxt="Outreach" btnHref="/projects"/> 
+      <GoalCard number="4" goalTitle="Research" text="Performing high quality research within the local context, build higher education capacity, and provide facilities for solving real problems." img={goals_research} imgAlt="Performing research in tropical contexts" btnImg={flask} btnImgAlt="flask icon" btnTxt="Our Research" btnHref="/projects"/>     
       </div>
     </div>
   </div>
 </section>
-<!-- TARTS 2  -->
+
+<!-- What's AT TARTS?  -->
 <section id="section-2" class="bg-g3 px-6 py-12 text-g1">
-  <div class="max-w-6xl space-y-6 mx-auto">
+  <div class="max-w-4xl space-y-6 mx-auto">
     <h3 class="text-2xl font-bold">
     What's at TARTS ? 
     </h3>
