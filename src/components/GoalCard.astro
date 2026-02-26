@@ -10,7 +10,7 @@ const { number, goalTitle, img, imgAlt, text, btnTxt, btnImg, btnImgAlt, btnHref
     <Image src={img} alt={imgAlt} height={200} width={200} class="h-40 w-40"/>
     <div class="hidden md:inline text-base break-words h-40">{text}</div>
     <!-- BUTTON -->
-    <a href="/about" class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
+    <a href={btnHref} class="flex items-center p-1 w-43 rounded-xl bg-g2 font-bold text-b1 border-2 border-h3 px-2">
         <Image src={btnImg} alt="worm" class="h-6 w-6"/>
         <p class="px-2"> {btnTxt} </p>
     </a>
