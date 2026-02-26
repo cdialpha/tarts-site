@@ -9,6 +9,7 @@ import Section from "../components/Section.astro";
 import soil from "../assets/soil-texture-3.jpg";
 import soil2 from "../assets/soil-texture-5.avif"
 import east from "../assets/east.png";
+import teamAll from "../assets/team.jpg"
 // Section 2 
 import aboutHero from "../assets/about-hero.jpg";
 import students from "../assets/thanks-students.jpg";
@@ -73,7 +74,7 @@ const internships = [
 ];
 ---
 <Layout title="About">
-  <Hero heroTitle="ABOUT US" subtitle="The People Behind TARTS Success" heroImage={aboutHero}/>  
+  <Hero heroTitle="ABOUT US" subtitle="The People Behind TARTS Success" heroImage={teamAll}/>  
   
   <!--OUR STORY -->
   <section id="Our Story" aria-label="Our Story" class="bg-b3 text-b1"> 
@@ -82,11 +83,10 @@ const internships = [
       <h1 class="text-3xl font-bold mb-4">Our Story</h1>
     <div class="text-xl">
     <p class="my-4"> Powerful Action for the Development of the Kadey (PADK) is a non-profit organization based in Cameroon’s East Region, approximately 52 km southwest of Batouri, the divisional capital. Established in 2017 with the support of Mount Cameroon Tobacco (MCT) and its founder Edmond Nader, PADK was created to promote sustainable rural development and long-term community resilience.</p>
-    
     <p class="my-4"> The site that now hosts the Tropical Agriculture Research & Training Station (TARTS) has a long history. Originally constructed in the 1950s, it operated as a cigar wrapper tobacco processing facility under Société Camerounaise des Tabacs (SCT), the former state-run tobacco company. In 2000, Mount Cameroon Tobacco (MCT) purchased the site. In 2019, the property was placed in the hands of TARTS for responsible stewardship and community-centered development and an additional 15 h of land was purchased from the village of Ngotto. </p>
-    <div class="flex-col md:flex-row"> 
+    <div class="flex md:flex-row"> 
       <p class="md:pr-10">What was once an industrial facility has been transformed into a center for regenerative agriculture, applied research, and farmer training.</p>
-      <Image src={east} alt="map of east region of cameroon" class="my-auto h-50 w-50" height={100} width={200}/> 
+      <!-- <Image src={east} alt="map of east region of cameroon" class="my-auto h-50 w-50" height={100} width={200}/>  -->
     </div>
     </div>
   </div>
@@ -137,7 +137,8 @@ const internships = [
             </a>
           </div>
         </div>
-        <div>
+      </div>
+        <Image src={aboutHero} alt="entireteam" class="max-w-4xl my-8 w-full mx-auto"/>
   </section>
 
   <!-- OUR TEAM --> 
@@ -157,60 +158,13 @@ const internships = [
       </div> 
     </div>
   </section>
-
-<!-- SPECIAL THANKS --> 
-<!-- TO DO: ADD SMALL IMAGES FOR MOBILE, LARGE FOR 2XL -->
-<section id="thanks" class="my-8 xl:my-16" aria-label="Team members">
-  <div class="mx-auto max-w-6xl px-4">
-    <h2 class="mb-4 xl:mb-12 text-xl font-bold leading-tight md:text-2xl">
-      Included in our team, and a special thanks to…
-    </h2>
-    <div class="text-white">
-      <!-- Top image -->
-      <div class="relative overflow-hidden rounded-xl">
-        <Image
-          src={students}
-          alt="Volunteering Opportunities"
-          class="block h-[420px] w-full object-cover md:h-[500px] content-auto lg:hidden"
-        />
-         <Image
-          src={studentsWide}
-          alt="Volunteering Opportunities"
-          class="block h-[420px] w-full object-cover md:h-[500px] content-auto hidden lg:block"/>
-                  <div class="absolute bottom-1/20 left-0 mr-auto z-10 bg-g3 w-3/4 text-md font-bold italic text-left pl-2 py-2 left-0 md:text-2xl rounded-br-4xl rounded-tr-4xl">
-                    <p>
-                    ... our invaluable interns and students from across Cameroon,
-              our future leaders of tomorrow.</p></div>
-        <div class="absolute inset-0 flex items-center">
-          <div class="px-6 md:px-10 lg:px-12 max-w-prose">
-          </div>
-        </div>
-      </div>
-      <!-- Bottom image -->
-      <div class="relative overflow-hidden rounded-xl">
-       <Image
-          src={community}
-          alt="Volunteering Opportunities"
-          class="block h-[420px] w-full object-cover md:h-[500px] content-auto lg:hidden"/>
-         <Image
-          src={communityWide} 
-          alt="Volunteering Opportunities"
-          class="block h-[420px] w-full object-cover md:h-[500px] content-auto hidden lg:block"/>
-          <div class="absolute bottom-1/10 right-0 mr-auto z-10 bg-g3 w-3/4 text-md md:text-xl font-bold italic text-right px-4 py-2 md:text-2xl rounded-bl-4xl rounded-tl-4xl">... the residents of Ngotto for their patience and participation.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- OPPORTUNITIES --> 
-<section id="opportunities" class=" bg-g3 p-8 pb-16" aria-label="Volunteering opportunities">
-  <div class="max-w-6xl mx-auto flex-col z-1 relative text-white">     
+<section id="opportunities" class=" bg-g1 p-8 pb-16" aria-label="Volunteering opportunities">
+  <div class="max-w-6xl mx-auto flex-col z-1 relative">     
     <h2 class=" text-2xl mt-4 font-extrabold"> Join Our Team & Getting Involved </h2>
     <div class="flex mt-6"> 
       <Image src={cmr} alt="cameroonian flag icon" class="h-8 w-10 mr-2"/>
-      <h2 class=" text-lg font-extrabold text-b3 my-auto"> Domestic Opportunities </h2>
+      <h2 class=" text-lg font-extrabold my-auto"> Domestic Opportunities </h2>
     </div> 
     <div class="mt-4"> 
       <p class="font-bold">Domestic Salaried: </p>
@@ -231,7 +185,7 @@ const internships = [
 <div>    
   <div class="flex mt-8">
     <Image src={globe} alt="cameroonian flag icon" class="h-6 w-8 mr-2"/>
-    <h2 class=" text-xl my-auto font-extrabold text-b3">  International & Remote </h2>
+    <h2 class=" text-xl my-auto font-extrabold">  International & Remote </h2>
  </div> 
  <div class="mt-4">      
       <p class="font-bold"> Local Volunteering: </p>
