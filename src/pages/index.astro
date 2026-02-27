@@ -9,12 +9,12 @@ import GoalCard from "../components/GoalCard.astro";
 // Hero Images
 import clouds from "../assets/clouds.avif";
 import farmNoSky from "../assets/farm-no-sky.png"; 
-import farmHD from "../assets/farm_HD.avif";
+import farm from "../assets/farm.jpeg"
 //Page Images
 import compostSift from "../assets/compost-sift.jpg";
-import lab from "../assets/lab.jpeg";
-import lib from "../assets/library.jpeg";
-import farm2 from "../assets/farm_2.jpeg";
+import lab from "../assets/lab.avif";
+import lib from "../assets/library.avif";
+import field from "../assets/field.avif";
 import dragonfruit from "../assets/dragonfruit.jpeg";
 import womensGroup from "../assets/womens-group.jpeg";
 import teamReading from "../assets/team-reading.jpeg";
@@ -56,7 +56,7 @@ const looped = [...sponsors, ...sponsors];
 <!-- HERO --> 
   <section class="relative overflow-hidden h-[500px] md:h-[600px]">
 <!-- FARM (static base, all viewports) -->
-    <Image src={farmHD} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 invisible md:visible"/>
+    <Image src={farm} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 invisible md:visible"/>
     <Image src={farmNoSky} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 visible md:hidden"/>
     <!-- CLOUDS (mobile only, parallax-ready) -->
     <div class="absolute inset-0 overflow-hidden z-0">
@@ -166,32 +166,20 @@ const looped = [...sponsors, ...sponsors];
     <p> We have invested in our on-site capabilities & resources to include:</p>
 
     <!-- Responsive grid -->
-    <div class="mx-auto grid gap-8 md:grid-cols-3">
-
-      <!-- Fields -->
-      <div class="space-y-3 text-center">
-        <h4 class="font-extrabold text-lg">Experimentation Fields</h4>
-        <Image src={farm2} alt="" class="rounded-lg object-contain" />
-        <p class="text-sm">
-          Numerous Test Plots; 1 ha. each of Cocoa & Coffee; Pasture Improvement Plots; Vanilla Production Facilities
-        </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-extrabold text-lg">
+      <div class="flex-col max-w-100"> 
+        <h2 class="text-center my-2">Experimentation Fields</h2>
+        <Image src={field} alt="" class="rounded-lg object-contain" />
       </div>
-      <!-- Laboratory -->
-      <div class="space-y-3 text-center">
-        <h4 class="font-extrabold text-lg">Laboratory</h4>
-        <Image src={lab} alt="" class="mx-auto rounded-lg object-contain" />
-        <p class="text-sm">
-          Lab Grade Microscopy; Media Lab & Culture; Well stocked chemical inventory
-        </p>
+      <div class="flex-col max-w-100"> 
+        <h2 class="text-center my-2">Academic Center</h2>
+        <Image src={lib} alt="" class="rounded-lg object-contain"/>
+      </div>
+      <div class="flex-col max-w-100">
+        <h2 class="text-center my-2">Laboratory</h2>
+        <Image src={lab} alt="" class="rounded-lg object-contain" />
       </div>
 
-      <!-- Academic Center -->
-      <div class="space-y-3 text-center">
-        <h4 class="font-extrabold text-lg">Academic Center</h4>
-        <Image src={lib} alt="" class="rounded-lg object-contain" />
-        <p class="text-sm">
-          Growing Technical Library; Office & Conference Space; Dormitories & Amenities
-        </p>
       </div>
 
     </div>

@@ -8,7 +8,6 @@ import blogHero from "../assets/blog-hero.jpeg"
 
 // import BlogCard from "../components/BlogCard.astro";
 import BlogCard from "../components/BlogCard.astro";
-// import {content} from "../data/content";
 import { posts } from "../data/content.ts";
 
 const isDev = import.meta.env.DEV;
@@ -62,10 +61,13 @@ const sorted = [...visiblePosts].sort(
   <section id="section-1" class="bg-g3 px-6 mb-0 text-b1">
     <div class="max-w-4xl mx-auto"> 
       <h2 class="text-2xl font-bold">Our Blog</h2>
-      <p class="my-2">This page will highlight both the community work we do and our core projects that directly support our mission of promoting regenerative agriculture.</p>
-
+      <p class="my-2 md:my-4">This page will highlight both the community work we do and our core projects that directly support our mission of promoting regenerative agriculture.</p>
+      <div class="text-xl md:text-2xl font-extrabold text-red-900/80 text-center my-4 md:my-10">  
+      <h2 class=""> ~ Blog Comming Soon ~</h2>
+        <h2 class=""> ~ Thank you for your patience! ~</h2>
+        </div>
         <!-- Rendered Blog Cards  -->
-        <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+        <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 opacity-20">
         {sorted.length === 0 ? (
               <p class="empty-state">No posts yet. Check back soon!</p>
             ) : (

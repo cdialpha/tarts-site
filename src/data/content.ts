@@ -33,56 +33,6 @@ export type ContentItem = {
 
 export const posts: ContentItem[] = [
   {
-    id: "blog-001",
-    type: "post",
-    title: "Pesticides in Tropical Ag",
-    description:
-      "Here's some text about what pesticides are used in tropical agriculture. Checmical X is especially noteworthy because of it's properties.",
-    publishedAt: "2025-11-04",
-    author: {
-      name: "Calvin Irwin",
-      avatar: calvin,
-    },
-    tags: ["trad ag", "ecology", "pesticides"],
-    readingTime: "7 min read",
-    featuredImage: pesticideThumb,
-    slug: "the-art-of-deep-work",
-  },
-  {
-    id: "blog-002",
-    type: "post",
-    title: "Remembering Dr. Elaine Inghram",
-    description:
-      "You already think in types. You already fear undefined. Here's why learning Rust feels surprisingly familiar — and where it will break your brain in the best way.",
-    publishedAt: "2025-12-18",
-    updatedAt: "2026-01-09",
-    author: {
-      name: "Calvin Irwin",
-      avatar: calvin,
-    },
-    tags: ["SoilFoodWeb", "Gratitude", "Spotlight"],
-    readingTime: "12 min read",
-    featuredImage: inghamThumb,
-    slug: "rust-for-typescript-devs",
-  },
-  {
-    id: "blog-04",
-    type: "newsletter",
-    title: "The Cost of Maximizing Crop Yields",
-    description:
-      "Token naming hell, component versioning nightmares, and the one decision that finally made our design system something engineers actually wanted to use.",
-    publishedAt: "2026-02-01",
-    author: {
-      name: "Calvin Irwin",
-      avatar: calvin,
-    },
-    tags: ["trad ag", "productivity", "food systems"],
-    readingTime: "9 min read",
-    featuredImage: growThumb,
-    slug: "design-systems-at-scale",
-    draft: false,
-  },
-  {
     id: "blog-5",
     type: "post",
     title: "Resisting the Urge to Dig",
@@ -130,3 +80,56 @@ export const posts: ContentItem[] = [
   },
 
 ]
+
+
+
+//  {
+//     id: "blog-001",
+//     type: "post",
+//     title: "Pesticides in Tropical Ag",
+//     description:
+//       "Here's some text about what pesticides are used in tropical agriculture. Checmical X is especially noteworthy because of it's properties.",
+//     publishedAt: "2025-11-04",
+//     author: {
+//       name: "Calvin Irwin",
+//       avatar: calvin,
+//     },
+//     tags: ["trad ag", "ecology", "pesticides"],
+//     readingTime: "7 min read",
+//     featuredImage: pesticideThumb,
+//     slug: "the-art-of-deep-work",
+//   },
+//   {
+//     id: "blog-002",
+//     type: "post",
+//     title: "Remembering Dr. Elaine Inghram",
+//     description:
+//       "You already think in types. You already fear undefined. Here's why learning Rust feels surprisingly familiar — and where it will break your brain in the best way.",
+//     publishedAt: "2025-12-18",
+//     updatedAt: "2026-01-09",
+//     author: {
+//       name: "Calvin Irwin",
+//       avatar: calvin,
+//     },
+//     tags: ["SoilFoodWeb", "Gratitude", "Spotlight"],
+//     readingTime: "12 min read",
+//     featuredImage: inghamThumb,
+//     slug: "rust-for-typescript-devs",
+//   },
+//   {
+//     id: "blog-04",
+//     type: "newsletter",
+//     title: "The Cost of Maximizing Crop Yields",
+//     description:
+//       "Token naming hell, component versioning nightmares, and the one decision that finally made our design system something engineers actually wanted to use.",
+//     publishedAt: "2026-02-01",
+//     author: {
+//       name: "Calvin Irwin",
+//       avatar: calvin,
+//     },
+//     tags: ["trad ag", "productivity", "food systems"],
+//     readingTime: "9 min read",
+//     featuredImage: growThumb,
+//     slug: "design-systems-at-scale",
+//     draft: false,
+//   },
