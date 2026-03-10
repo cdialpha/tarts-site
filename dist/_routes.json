@@ -12,6 +12,7 @@
     "/blog",
     "/blogs/*",
     "/donate",
+    "/fr/*",
     "/projects/*",
     "/resources"
   ]
