@@ -1,0 +1,58 @@
+---
+import "../../../styles/global.css";
+import Layout from "../../../layouts/Layout.astro"
+import Image from "astro/components/Image.astro";
+import grazingHero from "../../../assets/grazing-hero.jpeg"
+import rabbitHero from "../../../assets/rabbit-hero.jpeg"
+---
+
+<Layout title="Projects">
+
+<!-- HERO --> 
+  <section class="relative overflow-hidden h-[500px] md:h-[600px]">
+    <Image src={grazingHero} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10"/>
+    <div class="absolute inset-0 overflow-hidden z-0">
+        <div class="cloud-track cloud-slow top-0">
+        </div> 
+        </div>
+     </div>
+    <!--Glassmorphic Overlay-->
+    <div class="relative z-20 h-full flex items-center px-6 md:max-w-4xl md:mx-auto">
+       <div class="absolute bg-g3/60 backdrop-blur-xs border-4 p-4 border-black/30 shadow-lg left-0 my-auto mx-8 rounded-xl">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white ojuju"> Élevage </h1>
+        <h2 class="text-xl font-bold leading-tight text-g1 oju"> Accélérer la séquestration du carbone et exploiter les relations symbiotiques ancestrales </h2> 
+            </div>
+  </div>
+  </section>
+  
+  <!-- Projects Overview -->
+  <section id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+      <h2 class="text-2xl font-bold">Animaux et sols : un aperçu</h2>
+      <div class="flex flex-col mt-2">
+        <p  class="my-2"> Dans les forêts et les savanes de l'est du Cameroun, le sol n'est pas qu'une simple terre : c'est un écosystème vivant où les animaux jouent un rôle irremplaçable. Des vers de terre qui creusent des galeries dans le sol au bétail qui y broute, les animaux sont les maîtres ingénieurs de la nature, régénérant et enrichissant constamment le sol sous nos pieds. En agriculture régénératrice, nous ne nous contentons pas de cultiver des plantes ; nous cultivons des écosystèmes entiers où les animaux et le sol travaillent de concert pour créer l'abondance.</p> 
+        <p  class="my-2">Chaque créature contribue à la santé des sols à sa manière. Les vers de terre digèrent la matière organique et excrètent des turricules riches en nutriments tout en créant des galeries qui permettent à l'air et à l'eau de pénétrer profondément dans le sol. Les insectes décomposent la matière végétale, rendant les nutriments disponibles pour les micro-organismes. Même les animaux plus grands, comme les poulets, les chèvres et les bovins, déposent du fumier qui nourrit des milliards de micro-organismes du sol, tandis que leurs sabots aèrent délicatement les sols compactés. Cette interaction complexe entre les animaux et le sol crée un cycle autosuffisant : un sol sain favorise une faune diversifiée, et les animaux, à leur tour, régénèrent le sol.</p>
+        <p class="my-2">
+          Une approche régénératrice vise à optimiser la production en tirant parti des processus naturels et en préservant la santé des écosystèmes.
+        </p>
+
+      <h2 class="text-2xl font-bold my-4">Pâturage tournant</h2>
+        <p class="my-2">Les pratiques de gestion du pâturage, telles que le pâturage planifié et le morcellement, peuvent améliorer la santé des sols de plusieurs manières. Premièrement, ils favorisent une répartition uniforme de la pression de pâturage, prévenant ainsi le surpâturage dans certaines zones et permettant une croissance et un développement racinaire homogènes</p>      
+        <p class="my-2">Deuxièmement, les systèmes de pâturage tournant offrent des périodes de repos aux pâturages, permettant la repousse des plantes et la régénération du système racinaire, ce qui améliore la stabilité du sol et l'accumulation de matière organique.</p>  
+        <p class="my-2">Troisièmement, le piétinement des animaux et le dépôt de leurs déjections contribuent au cycle des nutriments et à l'incorporation de matière organique dans le sol, améliorant ainsi sa fertilité. Enfin, l'action physique des sabots des animaux sur la surface du sol peut contribuer à décompacter les couches de sol compactées, améliorant ainsi la structure du sol et l'infiltration de l'eau.</p> 
+        
+     <h2 class="text-2xl font-bold my-4">Projet familial d'élevage de lapins</h2>
+        <p class="my-2">Grâce à notre Projet familial d'élevage de lapins et à d'autres initiatives, nous démontrons comment un élevage à petite échelle peut régénérer les sols tout en fournissant des protéines et des revenus aux familles rurales.</p> 
+        <p class="my-2"></p> 
+        <p class="my-2"></p> 
+        
+ <Image src={rabbitHero} alt="man with rabbits" /> 
+
+    <h2 class="text-2xl font-bold my-4">Third Section Etc.</h2>
+        <p class="my-2">Nos projets illustrent concrètement cette relation symbiotique. Grâce à la lombriculture, nous exploitons le pouvoir des vers de terre pour transformer les déchets organiques en or noir : un compost riche en nutriments qui redonne vie aux sols appauvris. Nos lits de hügelkultur intègrent des débris ligneux qui se décomposent lentement, créant un habitat pour les organismes bénéfiques tout en retenant l’humidité. </p> 
+        <p class="my-2">Lorsque nous intégrons judicieusement les animaux à nos systèmes agricoles – que ce soit par le pâturage géré, le compostage ou l’élevage d’insectes bénéfiques – nous ne faisons pas qu’améliorer les rendements. Nous restaurons le tissu vivant de nos terres, renforçons leur résilience face à la sécheresse et à l’érosion, et créons des exploitations agricoles capables de nourrir nos communautés pour les générations à venir.</p> 
+        <p class="my-2"></p> 
+      
+  </section>
+   
+</Layout>

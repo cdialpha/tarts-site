@@ -1,0 +1,240 @@
+---
+import "../../styles/global.css";
+// Components 
+import Layout from "../../layouts/Layout.astro" 
+import { Image } from "astro:assets";
+import Button from "../../components/Button.astro";
+import Newsletter from "../../components/Newsletter.astro"
+import GoalCard from "../../components/GoalCard.astro";
+// Hero Images
+import clouds from "../../assets/clouds.avif";
+import farmNoSky from "../../assets/farm-no-sky.png"; 
+import farm from "../../assets/farm.jpeg"
+//Page Images
+import compostSift from "../../assets/compost-sift.jpg";
+import lab from "../../assets/lab.avif";
+import lib from "../../assets/library.avif";
+import field from "../../assets/field.avif";
+import dragonfruit from "../../assets/dragonfruit.jpeg";
+import womensGroup from "../../assets/womens-group.jpeg";
+import teamReading from "../../assets/team-reading.jpeg";
+import ZZZ1 from "../../assets/ZZZ_1.avif"
+import ZZZ3 from "../../assets/ZZZ_3.avif"
+
+// Goals Images 
+import goals_pangolin from "../../assets/goals_pangolin.png"
+import goals_market from "../../assets/goals_market.png"
+import goals_teaching from "../../assets/goals_teaching.png"
+import goals_research from "../../assets/goals_research.png"
+import worm from "../../assets/icons/worm.png"
+import bulb from "../../assets/icons/bulb.png"
+import carrot from "../../assets/icons/carrot.png"
+import flask from "../../assets/icons/flask.png"
+//Sponsor Logos
+import A2E from "../../assets/sponsors/A2E.png"
+import MCT from "../../assets/sponsors/MCT.png"
+import KDF from "../../assets/sponsors/KDF.png"
+import C4SC from "../../assets/sponsors/C4SC.png"
+import SFW from "../../assets/sponsors/SFW.png"
+import Alpi from "../../assets/sponsors/alpicam.png"
+import Jogoo from "../../assets/sponsors/jogoo.png"
+
+const sponsors = [
+  { name: "Aid to Empowerment (A2E)", logo: A2E},
+  { name: "Mount Cameroon Tobaco (MCT) Company", logo: MCT },
+  { name: "Kadji Foundation", logo: KDF },
+  { name: "Center for Social Change", logo: C4SC },
+  { name: "Soil Food Web", logo: SFW },
+  { name: "AlpiCam GrumCam", logo: Alpi },
+  { name: "Jogoo", logo: Jogoo },
+];
+
+// duplicate for seamless loop
+const looped = [...sponsors, ...sponsors];
+---
+<Layout title="Home">
+<!-- HERO --> 
+  <section class="relative overflow-hidden h-[500px] md:h-[600px]">
+<!-- FARM (static base, all viewports) -->
+    <Image src={farm} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 invisible md:visible"/>
+    <Image src={farmNoSky} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10 visible md:hidden"/>
+    <!-- CLOUDS (mobile only, parallax-ready) -->
+    <div class="absolute inset-0 overflow-hidden z-0">
+        <div class="cloud-track cloud-slow top-0">
+        <Image src={clouds} alt="" aria-hidden="true" class="cloud-img" />
+        <Image src={clouds} alt="" aria-hidden="true" class="cloud-img" />
+        </div> 
+        </div>
+      <!-- <Image src={clouds} alt="" aria-hidden="true" class="cloud-layer cloud-medium top-8 opacity-85"/> -->
+      <!-- Cloud layer 3 (fast, near) -->
+      <!-- <Image src={clouds} alt="" aria-hidden="true" class=" cloud-layer cloud-fast top-16 opacity-95"/> -->
+    </div>
+    <!--Glassmorphic -->
+    <div class="relative z-20 h-full md:max-w-4xl md:mx-auto flex md:items-center px-6">
+       <div class="absolute bg-g3/60 md:backdrop-blur-xs border-4 p-4 border-black/30 shadow-lg left-0 bottom-10 md:botom-auto my-auto mx-8 rounded-xl z-20">
+        <h1 class="text-2xl md:text-6xl font-bold leading-tight text-b5 ojuju"> Station de Recherche et de Formation en Agriculture Tropicale (TARTS)</h1>
+        <h1 class="text-2xl hidden md:inline md:text-4xl font-bold leading-tight text-b1"> Redéfinir l'agriculture tropicale, restaurer la santé des sols et libérer le potentiel</h1>
+            </div>
+  </div>
+
+      </div>
+    </div>
+  </section>
+  
+    <!-- NEED FOR ACTION -->
+  <div id="section-1" class="bg-g3 px-6 py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+   <h2 class="text-2xl font-bold text-b5">Il est urgent d'agir…</h2>
+
+<div class="flex flex-col mt-2">
+<p class="my-2">La Station de recherche et de formation en agriculture tropicale (TARTS) est une organisation à but non lucratif (ONG) située dans la région de l'Est du Cameroun. Elle se consacre à la diffusion de pratiques agricoles régénératrices innovantes auprès des petits exploitants agricoles ruraux.</p>
+<p class="my-2">L'Est possède une incroyable diversité culturelle, écologique et géographique. Cependant, son économie repose principalement sur l'exploitation forestière, minière et l'extraction des ressources. La plupart des agriculteurs locaux pratiquent une agriculture de subsistance et cultivent du cacao, du tabac, du manioc, de la banane plantain et du café.</p>
+<p class="my-2">Nous sommes déterminés à avoir un impact et à trouver des solutions respectueuses de l'environnement. Nous collaborons avec le secteur privé, les organisations internationales, les entités gouvernementales, les fondations et les donateurs privés afin de créer des opportunités pour les agriculteurs locaux.
+Nous appliquons une approche rigoureuse en utilisant la recherche factuelle et en la traduisant dans un contexte accessible aux agriculteurs locaux. Nous sommes déterminés à trouver des solutions durables à nos principaux problèmes.</p>
+   <Image src={compostSift} alt="clipapart" class="rounded-lg mt-4" loading="eager"/>
+      
+      <!-- LINKS -->
+      
+  </div>
+    </div>
+  </div>
+
+<!-- MISSION & VISION -->
+ <!-- TO DO: Different Photos -->
+<section class=" bg-g1 text-black" aria-label="Our Mission and Vision">
+<div class="max-w-4xl mx-auto px-6 py-16 space-y-16">
+  <div class="flex flex-col md:flex-row items-center gap-10">
+    <div class="flex flex-col gap-4 max-w-100 md:w-1/2">
+      <h2 class="font-extrabold text-2xl">Notre Mission</h2>
+       <p class="text-md leading-relaxed">
+      TARTS mobilise l'agriculture régénératrice comme catalyseur de la restauration écologique, des opportunités économiques et de la souveraineté alimentaire. Nous intégrons une recherche de terrain rigoureuse, des connaissances en biologie des sols, la conception agroécologique et une formation pratique afin de doter les agriculteurs, les étudiants et les partenaires communautaires des connaissances, des outils et des réseaux nécessaires pour revitaliser leurs terres, diversifier leurs moyens de subsistance et préserver leurs écosystèmes pour les générations futures. Ancrés dans le territoire – nous répondons aux défis spécifiques de la région Est du Cameroun – tout en contribuant à des solutions adaptables à l'agriculture tropicale à l'échelle mondiale. 
+      </p>
+    </div>  
+    <div class="max-w-100 md:w-1/2 flex justify-center rounded-full overflow-hidden">
+      <Image
+          src={ZZZ1}
+          alt="Descriptive alt text"
+          class="w-full h-full"/>
+    </div>
+  </div>
+  <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+    <div class="flex flex-col gap-4 max-w-100 md:w-1/2">
+      <h2 class="font-extrabold text-2xl">Notre vision</h2>
+       <p class="text-md leading-relaxed">
+      Nous envisageons un avenir où les sols dégradés regorgent de biodiversité, où les communautés rurales pilotent leur propre transformation agricole et où la science régénératrice et le savoir-faire paysan convergent pour créer des systèmes alimentaires résilients au Cameroun et au-delà. Grâce à des partenariats équitables, des formations inclusives et une recherche ancrée dans les réalités locales, TARTS ambitionne de devenir un pôle régional d'innovation, inspirant des moyens de subsistance durables, des paysages adaptés au climat et une dignité économique pour les petits exploitants agricoles.
+      </p>
+    </div>  
+    <div class="max-w-100 md:w-1/2 flex justify-center rounded-full overflow-hidden">
+      <Image
+          src={ZZZ3}
+          alt="Descriptive alt text"
+          class="w-full h-full object-cover"
+          sizes="(min-width: 768px) 256px, 200px"/>
+    </div>
+  </div>
+</div>
+</section>
+<!-- GOALS -->
+<section id="goals" class="bg-g1">
+  <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-extrabold text-2xl text-center">Nos domaines d'intervention</h2>
+</div>
+<div class="max-w-6xl mx-auto space-y-6 px-4 sm:px-6 py-12">
+    <div class="grid grid-cols-2 gap-2 md:gap-6 md:grid-cols-4">
+      <GoalCard number="1" goalTitle="Ecology" text="Building an intimate understanding of ecological relationships, Improving soil fertility, and creating a resilient environment." img={goals_pangolin} imgAlt="improving resistance" btnImg={worm} btnImgAlt="worm icon" btnTxt="Soil Food Web" btnHref="/projects/soil"/> 
+      <GoalCard number="2" goalTitle="Market Planning" text="Growing biodiverse, disease-resistant foods to improve food security & improve local livelihoods by creating high value market opportunities." img={goals_market} imgAlt="teaching farmers" btnImg={carrot}  btnImgAlt="carrot icon" btnTxt="Food systems" btnHref="/projects/foodsystems"/>
+      <GoalCard number="3" goalTitle="Training" text="Promoting regenerative farming practices, Deliver high value trainings to disseminate innovative solutions & Create a center that inspires local small-holder farmers." img={goals_teaching} imgAlt="teaching farmers" btnImg={bulb} btnImgAlt="bulb icon" btnTxt="Outreach" btnHref="/projects/community"/> 
+      <GoalCard number="4" goalTitle="Research" text="Performing high quality research within the local context, build higher education capacity, and provide facilities for solving real problems." img={goals_research} imgAlt="Performing research in tropical contexts" btnImg={flask} btnImgAlt="flask icon" btnTxt="Our Research" btnHref="/projects/soil"/>     
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What's AT TARTS?  -->
+<section id="section-2" class="bg-g3 px-6 py-12 text-g1">
+  <div class="max-w-4xl space-y-6 mx-auto">
+    <h3 class="text-2xl font-bold">
+    Qu'est-ce qu'on trouve chez TARTS ?
+    </h3>
+    <p> TARTS est notre principal site d'activité. Il nous sert de base pour la démonstration de nos différentes pratiques. Véritable ferme modèle, il permet de valider les théories et les concepts qui définissent notre mission. De là, nous pouvons accueillir des étudiants universitaires et des agriculteurs locaux afin de diffuser nos résultats.</p>
+    <p> Officiellement, nous avons divisé la station de recherche en quatre disciplines. </p>
+    <ul class="ml-2">
+  <li> • Département de biologie environnementale</li>
+<li> • Département de zootechnie</li>
+<li> • Département d'agronomie</li>
+<li> • Département de sociologie rurale</li>
+    </ul>
+    <p>Nous avons investi dans nos capacités et ressources sur site, notamment pour :</p>
+
+    <!-- Responsive grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-extrabold text-lg">
+      <div class="flex-col max-w-100"> 
+        <h2 class="text-center my-2">Champs d'expérimentation</h2>
+        <Image src={field} alt="" class="rounded-lg object-contain" />
+      </div>
+      <div class="flex-col max-w-100"> 
+        <h2 class="text-center my-2">Centre académique</h2>
+        <Image src={lib} alt="" class="rounded-lg object-contain"/>
+      </div>
+      <div class="flex-col max-w-100">
+        <h2 class="text-center my-2">Laboratoire</h2>
+        <Image src={lab} alt="" class="rounded-lg object-contain" />
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--- NEWSLETTER  -->
+<Newsletter/> 
+
+
+
+<!-- PROJECTS -->
+  <section id="section-4" class="bg-g2 px-6 py-12 text-white">
+      <div class="max-w-4xl mx-auto"> 
+      <h3 class="text-3xl font-semibold py-4">NOS PROJETS</h3>
+      <p class="pb-4">Bien que notre priorité demeure l'agriculture régénératrice, nous menons à bien des projets qui profitent à tous les aspects de la communauté. À l'instar de tout écosystème sain, tous les domaines sont interdépendants et étroitement liés. Outre nos projets de recherche et agricoles, nous avons réalisé des dizaines de projets avec des groupes de femmes, des écoles primaires, des petites entreprises, des projets d'accès à l'eau et à l'assainissement, et bien d'autres secteurs.</p>
+      <div class="flex-col mt-2 mb-10 relative">
+          <Image src={dragonfruit} alt="clipapart" class="object-cover brightness-40 contrast-125" loading="eager"/>
+          <h1 class="absolute -translate-y-12 text-2xl md:text-6xl font-extrabold z-10">Agriculture</h1>
+        <Image src={womensGroup} alt="clipapart" class="object-cover brightness-40 contrast-125" loading="eager"/>
+          <h1 class="absolute right-0 -translate-y-12 text-2xl md:text-6xl font-extrabold z-10">Communauté</h1>
+      <Image src={teamReading} alt="clipapart" class="object-cover brightness-40 contrast-125" loading="eager"/>
+          <h1 class="absolute -translate-y-12 text-2xl md:text-6xl font-extrabold z-10">Recherche</h1>
+        </div>
+  </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="section-5" class="px-6 py-12 text-g1 bg-g1 h-100">
+      <div class="max-w-4xl mx-auto overflow-hidden"> 
+      <h3 class="text-3xl font-semibold py-4 text-g3"> SPONSORS </h3>
+      <div class="flex w-max gap-8 scroll-right">
+      {looped.map((sponsor) => (
+        <div class="flex items-center justify-center opacity-70 hover:opacity-100 transition">
+          <Image
+            src={sponsor.logo}
+            alt={sponsor.name}
+            class="h-24 md:h-36 w-auto object-contain"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+</Layout>
+
+<style>
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+.scroll-right {
+  animation: scrollRight 120s linear infinite;
+}
+</style>

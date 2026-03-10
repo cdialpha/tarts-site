@@ -1,0 +1,118 @@
+---
+import "../../styles/global.css";
+// Components 
+import Layout from "../../layouts/Layout.astro"
+import Image from "astro/components/Image.astro";
+// Images 
+import blogHero from "../../assets/blog-hero.jpeg"
+
+// import BlogCard from "../components/BlogCard.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { posts } from "../../data/content.ts";
+
+const isDev = import.meta.env.DEV;
+
+// Show draft posts only in development
+const visiblePosts = posts.filter((p) => isDev || !p.draft);
+
+// Newest first
+const sorted = [...visiblePosts].sort(
+  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+);
+---
+<Layout title="Blog">
+  <!-- HERO --> 
+  <section class="relative overflow-hidden h-[500px] md:h-[600px] z-0">
+    <Image src={blogHero} alt="Farm landscape" class="absolute inset-0 w-full h-full object-cover z-10"/>
+    <div class="absolute inset-0 overflow-hidden z-0">
+        <div class="cloud-track cloud-slow top-0">
+        </div> 
+        </div>
+     </div>
+    <!--Glassmorphic Overlay-->
+    <div class="relative z-20 h-full flex items-center px-6 md:max-w-4xl md:mx-auto">
+       <div class="absolute bg-g3/60 backdrop-blur-xs border-4 p-4 border-black/30 shadow-lg left-0 my-auto mx-8 rounded-xl">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white ojuju"> Field Notes & Newsletters </h1>
+        <h2 class="text-xl font-bold leading-tight text-g1 oju"> Catch up on our progress & dig deeper on concepts </h2> 
+    </div>
+  </div>
+  </section>
+  
+  <!-- NEWSLETTER -->
+  <section id="section-1" class="bg-g3 px-6 py-6 md:py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+      <h2 class="text-2xl font-bold">TARTS Newsletter</h2>
+      <div class="flex flex-col mt-2">
+        <p class="my-2"> Like permaculture & regenerative agriculture, the components that create a healthy community are interwoven and highly connected.  Our mission is dependent on the success and livelihood of the community within the Kady Department, and therefore we invest in projects that span the areas of agriculture, health, education, youth development, conservation, etc.</p>
+        <p class="my-2"> Our newsletters and blog posts are where strategy meets soil. As a regenerative agriculture NGO, our work spans on-the-ground implementation, farmer partnerships, research translation, and systems change. This page brings those threads together in one place: regular updates from the field, practical lessons learned, and deeper reflections on what it takes to restore land and strengthen rural communities.</p>     
+        <div class="my-4">Help us grow 💚. Add your email to recieve updates from our newsletter. By subscribing you'll get:</p> 
+          <ul class="list-disc my-2 ml-5 md:ml-10">
+            <li> No spam! High quality content & updates.</li>
+            <li> Unlock 20+ Free PDF Guides </li>
+            <li> Unsubscribe at any time </li>    
+          </ul>
+        </div>
+      </div>
+      <script async data-uid="fa24dcd7f9" src="https://tarts.kit.com/fa24dcd7f9/index.js"></script>
+     </div>
+    </section>
+
+ <!-- Blog -->
+  <section id="section-1" class="bg-g3 px-6 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+      <h2 class="text-2xl font-bold">Our Blog</h2>
+      <p class="my-2 md:my-4">This page will highlight both the community work we do and our core projects that directly support our mission of promoting regenerative agriculture.</p>
+      <div class="text-xl md:text-2xl font-extrabold text-red-900/80 text-center my-4 md:my-10">  
+      <h2 class=""> ~ Blog Comming Soon ~</h2>
+        <h2 class=""> ~ Thank you for your patience! ~</h2>
+        </div>
+        <!-- Rendered Blog Cards  -->
+        <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 opacity-20">
+        {sorted.length === 0 ? (
+              <p class="empty-state">No posts yet. Check back soon!</p>
+            ) : (
+              <>
+                {sorted.map((post) => (
+                  <div>
+                    <BlogCard {...post} />
+                  </div>
+                ))}
+              </>
+            )}
+        </div>
+<div class="flex flex-col mt-2">
+        <ul class="list-disc ml-5 md:ml-10">         
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag1 font-bold text-b1 border-2 border-h3 px-2 inline">Field Reports</div>
+            <p class="px-2 inline">Seasonal updates from project sites, including soil health indicators, crop performance, water retention outcomes, and farmer feedback. We share what’s working, what isn’t, and how we adapt.</p>
+          </li>
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag2 font-bold text-b1 border-2 border-h3 px-2 inline">Farmer & Partner Spotlights</div>
+            <p class="px-2 inline">Stories from growers, agronomists, and local leaders advancing regenerative practices—cover cropping, rotational grazing, compost systems, agroforestry, and reduced tillage.</p>
+          </li>
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag3 font-bold text-b1 border-2 border-h3 px-2 inline">Data & Insights </div>
+            <p class="px-2 inline"> Clear breakdowns of monitoring results, pilot program outcomes, and research partnerships. We translate technical findings into actionable insights for practitioners and supporters.</p>
+          </li>
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag4 font-bold text-b1 border-2 border-h3 px-2 inline">Policy & Systems Updates</div>
+            <p class="px-2 inline">
+            Analysis of emerging funding mechanisms, carbon markets, conservation incentives, and regional food system developments that impact regenerative adoption.</p>
+            </li>
+          <li class="my-4">
+            <div class="p-1 rounded-xl bg-tag5 font-bold text-b1 border-2 border-h3 px-2 inline">Organizational Updates </div>
+            <p class="px-2 inline">Milestones, new partnerships, grant announcements, and opportunities to engage—whether through volunteering, collaboration, or direct support.</p>
+          </li> 
+        </ul>
+        </div>
+
+      </section>
+
+ <section id="section-1" class="bg-g3 px-6 py-6 md:py-12 mb-0 text-b1">
+    <div class="max-w-4xl mx-auto"> 
+      <h2 class="text-2xl font-bold">Third Section</h2>
+      <div class="flex flex-col mt-2">
+        <p class="my-2"> Like permaculture & regenerative agriculture, the components that create a healthy community are interwoven and highly connected.  Our mission is dependent on the success and livelihood of the community within the Kady Department, and therefore we invest in projects that span the areas of agriculture, health, education, youth development, conservation, etc.</p>
+  </section>
+
+</Layout>
